@@ -1,0 +1,21 @@
+
+
+#include "Automaton.h"
+
+class Automaton : public Automaton
+{
+public:
+    Automaton() : Automaton(TokenType::) {}
+
+    void S0(const std::string& input);
+};
+
+
+void Automaton::S0(const std::string& input) {
+    if (input[index] == '') {
+
+    }
+    else {
+        Serr();
+    }
+}

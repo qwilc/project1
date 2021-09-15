@@ -7,10 +7,18 @@ include_directories(.)
 
 add_executable(project1
         Automaton.h
+        ExactMatchAutomaton.cpp
+        ExactMatchAutomaton.h
         ColonAutomaton.cpp
         ColonAutomaton.h
         ColonDashAutomaton.cpp
         ColonDashAutomaton.h
+        CommaAutomaton.cpp
+        CommaAutomaton.h
+        CommentAutomaton.cpp
+        CommentAutomaton.h
+        StringAutomaton.cpp
+        StringAutomaton.h
         Lexer.cpp
         Lexer.h
         main.cpp
