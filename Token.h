@@ -31,7 +31,7 @@ private:
     TokenType type;
     std::string description;
     int line;
-    std::string tokenTypeToString(TokenType type);
+    std::string tokenTypeToString(TokenType tokenType);
 
 public:
     Token(TokenType type, std::string description, int line);

@@ -15,8 +15,8 @@ std::string Token::toString() {
     return output.str();
 }
 
-std::string Token::tokenTypeToString(TokenType type) {
-        switch (type) {
+std::string Token::tokenTypeToString(TokenType tokenType) {
+        switch (tokenType) {
             case TokenType::COLON:
                 return "COLON";
                 break;
