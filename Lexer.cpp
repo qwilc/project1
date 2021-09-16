@@ -97,6 +97,6 @@ std::string Lexer::toString() {
     for(Token * token : tokens) {
          tokenString << token->toString() << std::endl;
     }
-    tokenString << "Total tokens = " << tokens.size();
+    tokenString << "Total Tokens = " << tokens.size();
     return tokenString.str();
 }

@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
     std::string fileName = argv[1];
     std::ifstream inFile(fileName);
     if(!inFile.is_open()) {
-        std::cout << "Error opening" << fileName << std::endl;
+        std::cout << "Error opening " << fileName << std::endl;
         return 1;
     }
 
