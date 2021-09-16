@@ -12,8 +12,6 @@ private:
 
     void CreateAutomata();
 
-    // TODO: add any other private methods here (if needed)
-
 public:
     Lexer();
     ~Lexer();

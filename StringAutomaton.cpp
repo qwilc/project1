@@ -2,7 +2,6 @@
 // Created by qgwil on 9/14/2021.
 //
 
-#include <iostream>
 #include "StringAutomaton.h"
 
 void StringAutomaton::S0(const std::string& input) {
@@ -20,7 +19,7 @@ void StringAutomaton::S1(const std::string& input) {
     if(index >= input.size()) { //end of file reached, becomes an UNDEFINED token
         type = TokenType::UNDEFINED;
     }
-    else if(input[index] == '\n') { //new line, so update newLines; stay in state 1 TODO: Do newlines count for inputRead?
+    else if(input[index] == '\n') { //new line, so update newLines; stay in state 1
         index++;
         inputRead++;
         newLines++;

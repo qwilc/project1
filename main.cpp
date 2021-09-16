@@ -1,8 +1,7 @@
 #include "Lexer.h"
 #include <iostream>
 #include <string>
-#include <vector>
-#include <fstream> //TODO figure out where to include everything
+#include <fstream>
 
 int main(int argc, char** argv) {
 

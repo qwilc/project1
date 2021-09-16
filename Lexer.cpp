@@ -1,6 +1,5 @@
-#include <cctype>
+
 #include <sstream>
-#include <iostream>
 #include "Lexer.h"
 #include "CommentAutomaton.h"
 #include "StringAutomaton.h"
@@ -12,7 +11,6 @@ Lexer::Lexer() {
 }
 
 Lexer::~Lexer() {
-    // TODO: double check memory is freed correctly
     for(unsigned int i = 0; i < automata.size(); i++) {
         delete automata.at(i);
         automata.at(i) = nullptr;
@@ -25,9 +23,6 @@ Lexer::~Lexer() {
 }
 
 void Lexer::CreateAutomata() {
-    //automata.push_back(new ColonAutomaton());
-    //automata.push_back(new ColonDashAutomaton());
-    //automata.push_back(new CommaAutomaton());
     automata.push_back(new ExactMatchAutomaton(":", TokenType::COLON));
     automata.push_back(new ExactMatchAutomaton(":-", TokenType::COLON_DASH));
     automata.push_back(new ExactMatchAutomaton(",", TokenType::COMMA));
@@ -44,8 +39,6 @@ void Lexer::CreateAutomata() {
     automata.push_back(new IDAutomaton());
     automata.push_back(new StringAutomaton());
     automata.push_back(new CommentAutomaton());
-
-    // TODO: Add the other needed automata here
 }
 
 void Lexer::Run(std::string& input) {
@@ -60,13 +53,13 @@ void Lexer::Run(std::string& input) {
         maxRead = 0;
         maxAutomaton = automata.at(0);
 
-        while(input.size() > 0 && isspace(input.at(0))) { //TODO: Is this the best way to deal with white space?
+        while(input.size() > 0 && isspace(input.at(0))) {
             if(input.at(0) == '\n') {
                 lineNum ++;
             }
             input.erase(0, 1);
         }
-        if(input.size() <= 0) { //TODO: Is this necessary?
+        if(input.size() <= 0) {
             break;
         }
 

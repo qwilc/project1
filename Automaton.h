@@ -1,5 +1,6 @@
 #ifndef AUTOMATON_H
 #define AUTOMATON_H
+
 #include "Token.h"
 
 class Automaton

@@ -2,7 +2,6 @@
 // Created by qgwil on 9/15/2021.
 //
 
-#include <iostream>
 #include "CommentAutomaton.h"
 
 void CommentAutomaton::S0(const std::string &input) {
@@ -36,7 +35,7 @@ void CommentAutomaton::S2(const std::string &input) {
     if(index >= input.size()) { //reached end of file, becomes UNDEFINED token
         type = TokenType::UNDEFINED;
     }
-    else if(input[index] == '\n') { //newline, so update newLines; stay in state 2 //TODO: new line char counts for inputRead?
+    else if(input[index] == '\n') { //newline, so update newLines; stay in state 2
         index++;
         inputRead++;
         newLines++;
