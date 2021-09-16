@@ -15,6 +15,8 @@ add_executable(project1
         ColonDashAutomaton.h
         CommaAutomaton.cpp
         CommaAutomaton.h
+        IDAutomaton.cpp
+        IDAutomaton.h
         CommentAutomaton.cpp
         CommentAutomaton.h
         StringAutomaton.cpp
