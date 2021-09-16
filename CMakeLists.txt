@@ -10,12 +10,6 @@ add_executable(project1
         Automaton.h
         ExactMatchAutomaton.cpp
         ExactMatchAutomaton.h
-        ColonAutomaton.cpp
-        ColonAutomaton.h
-        ColonDashAutomaton.cpp
-        ColonDashAutomaton.h
-        CommaAutomaton.cpp
-        CommaAutomaton.h
         IDAutomaton.cpp
         IDAutomaton.h
         CommentAutomaton.cpp

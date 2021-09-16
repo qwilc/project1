@@ -2,9 +2,6 @@
 #include <sstream>
 #include <iostream>
 #include "Lexer.h"
-#include "ColonAutomaton.h"
-#include "ColonDashAutomaton.h"
-#include "CommaAutomaton.h"
 #include "CommentAutomaton.h"
 #include "StringAutomaton.h"
 #include "ExactMatchAutomaton.h"
