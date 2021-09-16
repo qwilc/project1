@@ -57,6 +57,12 @@ void CommentAutomaton::S3(const std::string &input) {
     if(index >= input.size()) {
         type = TokenType::UNDEFINED;
     }
+    else if(input[index] == '\n') { //newline, so update newLines; back to state 2
+        index++;
+        inputRead++;
+        newLines++;
+        S2(input);
+    }
     else if(input[index] == '#') { //block comment completed; final update of inputRead
         inputRead++;
     }
