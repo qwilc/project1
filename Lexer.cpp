@@ -16,12 +16,12 @@ Lexer::Lexer() {
 
 Lexer::~Lexer() {
     // TODO: double check memory is freed correctly
-    for(int i = 0; i < automata.size(); i++) {
+    for(unsigned int i = 0; i < automata.size(); i++) {
         delete automata.at(i);
         automata.at(i) = nullptr;
     }
 
-    for(int i = 0; i < tokens.size(); i++) {
+    for(unsigned int i = 0; i < tokens.size(); i++) {
         delete tokens.at(i);
         tokens.at(i) = nullptr;
     }
