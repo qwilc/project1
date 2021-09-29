@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/qgwil/cs236/project1/ExactMatchAutomaton.cpp" "C:/Users/qgwil/cs236/project1/cmake-build-debug/CMakeFiles/project1.dir/ExactMatchAutomaton.cpp.obj"
   "C:/Users/qgwil/cs236/project1/IDAutomaton.cpp" "C:/Users/qgwil/cs236/project1/cmake-build-debug/CMakeFiles/project1.dir/IDAutomaton.cpp.obj"
   "C:/Users/qgwil/cs236/project1/Lexer.cpp" "C:/Users/qgwil/cs236/project1/cmake-build-debug/CMakeFiles/project1.dir/Lexer.cpp.obj"
+  "C:/Users/qgwil/cs236/project1/Parser.cpp" "C:/Users/qgwil/cs236/project1/cmake-build-debug/CMakeFiles/project1.dir/Parser.cpp.obj"
   "C:/Users/qgwil/cs236/project1/StringAutomaton.cpp" "C:/Users/qgwil/cs236/project1/cmake-build-debug/CMakeFiles/project1.dir/StringAutomaton.cpp.obj"
   "C:/Users/qgwil/cs236/project1/Token.cpp" "C:/Users/qgwil/cs236/project1/cmake-build-debug/CMakeFiles/project1.dir/Token.cpp.obj"
   "C:/Users/qgwil/cs236/project1/main.cpp" "C:/Users/qgwil/cs236/project1/cmake-build-debug/CMakeFiles/project1.dir/main.cpp.obj"

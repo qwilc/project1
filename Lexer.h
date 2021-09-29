@@ -17,6 +17,7 @@ public:
     ~Lexer();
 
     void Run(std::string& input);
+    std::vector<Token*> getTokens();
     std::string toString();
 
 };

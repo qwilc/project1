@@ -250,6 +250,33 @@ Lexer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\project1.dir\build.make CMakeFiles/project1.dir/Lexer.cpp.s
 .PHONY : Lexer.cpp.s
 
+Parser.obj: Parser.cpp.obj
+
+.PHONY : Parser.obj
+
+# target to build an object file
+Parser.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project1.dir\build.make CMakeFiles/project1.dir/Parser.cpp.obj
+.PHONY : Parser.cpp.obj
+
+Parser.i: Parser.cpp.i
+
+.PHONY : Parser.i
+
+# target to preprocess a source file
+Parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project1.dir\build.make CMakeFiles/project1.dir/Parser.cpp.i
+.PHONY : Parser.cpp.i
+
+Parser.s: Parser.cpp.s
+
+.PHONY : Parser.s
+
+# target to generate assembly for a file
+Parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project1.dir\build.make CMakeFiles/project1.dir/Parser.cpp.s
+.PHONY : Parser.cpp.s
+
 StringAutomaton.obj: StringAutomaton.cpp.obj
 
 .PHONY : StringAutomaton.obj
@@ -352,6 +379,9 @@ help:
 	@echo ... Lexer.obj
 	@echo ... Lexer.i
 	@echo ... Lexer.s
+	@echo ... Parser.obj
+	@echo ... Parser.i
+	@echo ... Parser.s
 	@echo ... StringAutomaton.obj
 	@echo ... StringAutomaton.i
 	@echo ... StringAutomaton.s

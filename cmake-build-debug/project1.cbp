@@ -109,6 +109,12 @@
 		<Unit filename="C:/Users/qgwil/cs236/project1/Lexer.h">
 			<Option target="project1"/>
 		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Parser.cpp">
+			<Option target="project1"/>
+		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Parser.h">
+			<Option target="project1"/>
+		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/StringAutomaton.cpp">
 			<Option target="project1"/>
 		</Unit>

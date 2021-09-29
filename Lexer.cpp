@@ -100,3 +100,7 @@ std::string Lexer::toString() {
     tokenString << "Total Tokens = " << tokens.size();
     return tokenString.str();
 }
+
+std::vector<Token *> Lexer::getTokens() {
+    return tokens;
+}
