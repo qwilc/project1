@@ -33,5 +33,8 @@ std::string DatalogProgram::toString() {
         output << "  " << s << std::endl; //TODO: should there be a new line at the very end?
     }
 
-    return output.str();
+    std::string returnStr = output.str();
+    returnStr = returnStr.substr(0, returnStr.size()-1);
+
+    return returnStr;
 }
