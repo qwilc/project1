@@ -15,14 +15,90 @@ Parser.h
 C:/Users/qgwil/cs236/project1/Parser.h
 
 C:/Users/qgwil/cs236/project1/Parser.h
-Token.h
-C:/Users/qgwil/cs236/project1/Token.h
+Lexer/Token.h
+C:/Users/qgwil/cs236/project1/Lexer/Token.h
 DatalogProgram.h
 C:/Users/qgwil/cs236/project1/DatalogProgram.h
 vector
 -
 
-C:/Users/qgwil/cs236/project1/Token.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Automaton.h
+Token.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Token.h
+
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/CommentAutomaton.cpp
+CommentAutomaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/CommentAutomaton.h
+
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/CommentAutomaton.h
+Automaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Automaton.h
+
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/ExactMatchAutomaton.cpp
+ExactMatchAutomaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/ExactMatchAutomaton.h
+
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/ExactMatchAutomaton.h
+Automaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Automaton.h
+
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/IDAutomaton.cpp
+IDAutomaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/IDAutomaton.h
+
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/IDAutomaton.h
+Automaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Automaton.h
+
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Lexer.cpp
+sstream
+-
+Lexer.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Lexer.h
+CommentAutomaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/CommentAutomaton.h
+StringAutomaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/StringAutomaton.h
+ExactMatchAutomaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/ExactMatchAutomaton.h
+IDAutomaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/IDAutomaton.h
+
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Lexer.h
+vector
+-
+Automaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Automaton.h
+Token.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Token.h
+
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/StringAutomaton.cpp
+StringAutomaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/StringAutomaton.h
+
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/StringAutomaton.h
+Automaton.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Automaton.h
+
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Token.cpp
+Token.h
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Token.h
+sstream
+-
+
+C:/Users/qgwil/cs236/project1/Project 1 - Lexer/Token.h
 string
+-
+
+C:/Users/qgwil/cs236/project1/main.cpp
+Lexer/Lexer.h
+C:/Users/qgwil/cs236/project1/Lexer/Lexer.h
+Parser.h
+C:/Users/qgwil/cs236/project1/Parser.h
+iostream
+-
+string
+-
+fstream
 -
 

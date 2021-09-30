@@ -5,9 +5,16 @@
 #ifndef PROJECT1_PARAMETER_H
 #define PROJECT1_PARAMETER_H
 
+#include <string>
 
 class Parameter {
-    //make sure you have a way to label/distinguish between ids and strings (for project 3)
+    bool string;
+    std::string value;
+
+public:
+    Parameter(bool isString, std::string value);
+    bool isString() {return string;};
+    std::string toString();
 };
 
 

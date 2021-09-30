@@ -23,4 +23,12 @@ add_executable(project1
         Token.h
         Parser.cpp
         Parser.h
+        DatalogProgram.h
+        DatalogProgram.cpp
+        Parameter.h
+        Parameter.cpp
+        Predicate.h
+        Predicate.cpp
+        Rule.h
+        Rule.cpp
         )

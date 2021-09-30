@@ -91,6 +91,12 @@
 		<Unit filename="C:/Users/qgwil/cs236/project1/CommentAutomaton.h">
 			<Option target="project1"/>
 		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/DatalogProgram.cpp">
+			<Option target="project1"/>
+		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/DatalogProgram.h">
+			<Option target="project1"/>
+		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/ExactMatchAutomaton.cpp">
 			<Option target="project1"/>
 		</Unit>
@@ -109,10 +115,28 @@
 		<Unit filename="C:/Users/qgwil/cs236/project1/Lexer.h">
 			<Option target="project1"/>
 		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Parameter.cpp">
+			<Option target="project1"/>
+		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Parameter.h">
+			<Option target="project1"/>
+		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/Parser.cpp">
 			<Option target="project1"/>
 		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/Parser.h">
+			<Option target="project1"/>
+		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Predicate.cpp">
+			<Option target="project1"/>
+		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Predicate.h">
+			<Option target="project1"/>
+		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Rule.cpp">
+			<Option target="project1"/>
+		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Rule.h">
 			<Option target="project1"/>
 		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/StringAutomaton.cpp">
