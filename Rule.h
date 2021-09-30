@@ -12,12 +12,18 @@
 
 class Rule {
 private:
-    Predicate* headPredicate;
-    std::vector<Predicate*> bodyPredicates;
+    Predicate headPredicate;
+    std::vector<Predicate> bodyPredicates;
 public:
-    Rule(Predicate* headPredicate) {this->headPredicate = headPredicate;}
+    Rule(Predicate headPredicate) {
+        this->headPredicate.setID(headPredicate.getID());
+        this->headPredicate.addParameters(headPredicate.getParameters());
+    }
     std::string toString();
-    void addBodyPredicate(Predicate* predicate) {bodyPredicates.push_back(predicate);}
+    void addBodyPredicate(Predicate predicate) {bodyPredicates.push_back(predicate);}
+    void addBodyPredicate(std::vector<Predicate> predicates) {
+        bodyPredicates.insert(bodyPredicates.end(), predicates.begin(), predicates.end());
+    }
 };
 
 

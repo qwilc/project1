@@ -9,156 +9,206 @@ Parser::Parser(std::vector<Token*> tokens) {
     this->tokens = tokens;
 }
 
-void Parser::parse() {
+DatalogProgram Parser::parse() {
     try {
-        parseDatalog();
+        return parseDatalog();
     }
     catch (Token * error) {
         std::cout<<"Failure!"<<std::endl<<"  "<<error->toString()<<std::endl;
     }
+    DatalogProgram dummy;
+    return dummy;
 }
 
-void Parser::match(TokenType type) {
+Token * Parser::match(TokenType type) {
+    Token * currToken = tokens.at(index);
     if(getNextTokenType() == type) {
         index++;
+        return currToken;
     }
     else {
-        throw tokens.at(index);
+        throw currToken;
     }
 }
 
-void Parser::parseDatalog() {
+DatalogProgram Parser::parseDatalog() {
+    DatalogProgram datalogProgram;
+
     //datalogProgram->SCHEMES COLON scheme schemeList FACTS COLON factList RULES COLON ruleList QUERIES COLON query queryList EOF
     match(TokenType::SCHEMES);
     match(TokenType::COLON);
-    parseScheme();
-    parseSchemeList();
+    datalogProgram.addSchemes(parseScheme());
+    datalogProgram.addSchemes(parseSchemeList());
     match(TokenType::FACTS);
     match(TokenType::COLON);
-    parseFactList();
+    datalogProgram.addFacts(parseFactList());
     match(TokenType::RULES);
     match(TokenType::COLON);
-    parseRuleList();
+    datalogProgram.addRules(parseRuleList());
     match(TokenType::QUERIES);
     match(TokenType::COLON);
-    parseQuery();
-    parseQueryList();
+    datalogProgram.addQueries(parseQuery());
+    datalogProgram.addQueries(parseQueryList());
     match(TokenType::ENDFILE);
+
+    for(Predicate fact : datalogProgram.getFacts()) {
+        for(Parameter param : fact.getParameters()) {
+            datalogProgram.addToDomain(param.toString());
+        }
+    }
+    //for each parameter in parameters
+    //insert description in domain set
+
     std::cout<<"Success!"<<std::endl;
+    return datalogProgram;
 }
 
-void Parser::parseSchemeList() {
+std::vector<Predicate> Parser::parseSchemeList() {
+    std::vector<Predicate> returnVec;
     if(notFollow(TokenType::FACTS)) {
-        parseScheme();
-        parseSchemeList();
+        returnVec.push_back(parseScheme());
+        returnVec = append(returnVec, parseSchemeList());
     }
+    return returnVec;
 }
 
-void Parser::parseFactList() {
+std::vector<Predicate> Parser::parseFactList() {
+    std::vector<Predicate> returnVec;
     if(notFollow(TokenType::RULES)) {
-        parseFact();
-        parseFactList();
+        returnVec.push_back(parseFact());
+        returnVec = append(returnVec, parseFactList());
     }
+    return returnVec;
 }
 
-void Parser::parseRuleList() {
+std::vector<Rule> Parser::parseRuleList() {
+    std::vector<Rule> returnVec;
     if(notFollow(TokenType::QUERIES)) {
-        parseRule();
-        parseRuleList();
+        returnVec.push_back(parseRule());
+        returnVec = append(returnVec, parseRuleList());
     }
+    return returnVec;
 }
 
-void Parser::parseQueryList() {
+std::vector<Predicate> Parser::parseQueryList() {
+    std::vector<Predicate> returnVec;
     if(notFollow(TokenType::ENDFILE)) {
-        parseQuery();
-        parseQueryList();
+        returnVec.push_back(parseQuery());
+        returnVec = append(returnVec, parseQueryList());
     }
+    return returnVec;
 }
 
-void Parser::parseScheme() {
-    match(TokenType::ID);
+Predicate Parser::parseScheme() {
+    Predicate scheme;
+    scheme.setID(match(TokenType::ID)->getDescription());
     match(TokenType::LEFT_PAREN);
-    match(TokenType::ID);
-    parseIDList();
+    Parameter id(false, match(TokenType::ID)->getDescription());
+    scheme.addParameter(id);
+    scheme.addParameters(parseIDList());
     match(TokenType::RIGHT_PAREN);
+    return scheme;
 }
 
-void Parser::parseFact() {
-    match(TokenType::ID);
+Predicate Parser::parseFact() {
+    Predicate fact;
+    fact.setID(match(TokenType::ID)->getDescription());
     match(TokenType::LEFT_PAREN);
-    match(TokenType::STRING);
-    parseStringList();
+    Parameter string(true, match(TokenType::STRING)->getDescription());
+    fact.addParameter(string);
+    fact.addParameters(parseStringList());
     match(TokenType::RIGHT_PAREN);
     match(TokenType::PERIOD);
+    return fact;
 }
 
-void Parser::parseRule() {
-    parseHeadPredicate();
+Rule Parser::parseRule() {
+    Rule rule(parseHeadPredicate());
     match(TokenType::COLON_DASH);
-    parsePredicate();
-    parsePredicateList();
+    rule.addBodyPredicate(parsePredicate());
+    rule.addBodyPredicate(parsePredicateList());
     match(TokenType::PERIOD);
+    return rule;
 }
 
-void Parser::parseQuery() {
-    parsePredicate();
+Predicate Parser::parseQuery() {
+    Predicate query = parsePredicate();
     match(TokenType::Q_MARK);
+    return query;
 }
 
-void Parser::parseHeadPredicate() {
-    match(TokenType::ID);
+Predicate Parser::parseHeadPredicate() {
+    Predicate headPredicate;
+    headPredicate.setID(match(TokenType::ID)->getDescription());
     match(TokenType::LEFT_PAREN);
-    match(TokenType::ID);
-    parseIDList();
+    Parameter id(false, match(TokenType::ID)->getDescription());
+    headPredicate.addParameter(id);
+    headPredicate.addParameters(parseIDList());
     match(TokenType::RIGHT_PAREN);
+    return headPredicate;
 }
 
-void Parser::parsePredicate() {
-    match(TokenType::ID);
+Predicate Parser::parsePredicate() {
+    Predicate predicate;
+    predicate.setID(match(TokenType::ID)->getDescription());
     match(TokenType::LEFT_PAREN);
-    parseParameter();
-    parseParameterList();
+    Parameter parameter = parseParameter();
+    predicate.addParameter(parameter);
+    predicate.addParameters(parseParameterList());
     match(TokenType::RIGHT_PAREN);
+    return predicate;
 }
 
-void Parser::parsePredicateList() {
+std::vector<Predicate> Parser::parsePredicateList() {
+    std::vector<Predicate> returnVec;
     if(notFollow(TokenType::PERIOD)) {
         match(TokenType::COMMA);
-        parsePredicate();
-        parsePredicateList();
+        returnVec.push_back(parsePredicate());
+        returnVec = append(returnVec, parsePredicateList());
     }
+    return returnVec;
 }
 
-void Parser::parseParameterList() {
+std::vector<Parameter> Parser::parseParameterList() {
+    std::vector<Parameter> returnVec;
     if(notFollow(TokenType::RIGHT_PAREN)) {
         match(TokenType::COMMA);
-        parseParameter();
-        parseParameterList();
+        returnVec.push_back(parseParameter());
+        returnVec = append(returnVec, parseParameterList());
     }
+    return returnVec;
 }
 
-void Parser::parseStringList() {
+std::vector<Parameter> Parser::parseStringList() {
+    std::vector<Parameter> returnVec;
     if(notFollow(TokenType::RIGHT_PAREN)) {
         match(TokenType::COMMA);
-        match(TokenType::STRING);
-        parseStringList();
+        Parameter parameter(true, match(TokenType::STRING)->getDescription());
+        returnVec.push_back(parameter);
+        returnVec = append(returnVec, parseStringList());
     }
+    return returnVec;
 }
 
-void Parser::parseIDList() {
+std::vector<Parameter> Parser::parseIDList() {
+    std::vector<Parameter> returnVec;
     if(notFollow(TokenType::RIGHT_PAREN)) {
         match(TokenType::COMMA);
-        match(TokenType::ID);
-        parseIDList();
+        Parameter id(false, match(TokenType::ID)->getDescription());
+        returnVec.push_back(id);
+        returnVec = append(returnVec, parseIDList());
     }
+    return returnVec;
 }
 
-void Parser::parseParameter() {
+Parameter Parser::parseParameter() {
     if(getNextTokenType() == TokenType::STRING) {
-        match(TokenType::STRING);
+        Parameter parameter(true, match(TokenType::STRING)->getDescription());
+        return parameter;
     }
     else {
-        match(TokenType::ID);
+        Parameter parameter(false, match(TokenType::ID)->getDescription());
+        return parameter;
     }
 }
 

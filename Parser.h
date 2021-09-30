@@ -14,33 +14,39 @@ private:
     int index = 0;
     std::vector<Token*> tokens;
 
-    void match(TokenType type);
+    Token * match(TokenType type);
     TokenType getNextTokenType() {return tokens.at(index)->getType();}
     bool notFollow(TokenType followSet) {return getNextTokenType() != followSet;}
 
-    void parseDatalog();
-    void parseScheme();
-    void parseSchemeList();
-    void parseFactList();
-    void parseRuleList();
-    void parseQueryList();
+    template <typename T>
+    std::vector<T> append(std::vector<T> baseVec, std::vector<T> addVec) {
+        baseVec.insert(baseVec.end(), addVec.begin(), addVec.end());
+        return baseVec;
+    }
 
-    void parseFact();
-    void parseRule();
-    void parseQuery();
+    DatalogProgram parseDatalog();
+    Predicate parseScheme();
+    std::vector<Predicate> parseSchemeList();
+    std::vector<Predicate> parseFactList();
+    std::vector<Rule> parseRuleList();
+    std::vector<Predicate> parseQueryList();
 
-    void parseHeadPredicate();
-    void parsePredicate();
+    Predicate parseFact();
+    Rule parseRule();
+    Predicate parseQuery();
 
-    void parsePredicateList();
-    void parseParameterList();
-    void parseStringList();
-    void parseIDList();
-    void parseParameter();
+    Predicate parseHeadPredicate();
+    Predicate parsePredicate();
+
+    std::vector<Predicate> parsePredicateList();
+    std::vector<Parameter> parseParameterList();
+    std::vector<Parameter> parseStringList();
+    std::vector<Parameter> parseIDList();
+    Parameter parseParameter();
 
 public:
     Parser(std::vector<Token*> tokens);
-    void parse();
+    DatalogProgram parse();
 };
 
 

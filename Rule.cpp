@@ -8,11 +8,11 @@
 std::string Rule::toString() {
     std::stringstream output;
 
-    output << headPredicate->toString() << " :- ";
-    output << bodyPredicates.at(0)->toString();
+    output << headPredicate.toString() << " :- ";
+    output << bodyPredicates.at(0).toString();
 
-    for(int i = 1; i < bodyPredicates.size(); i++) {
-        output << "," << bodyPredicates.at(i)->toString();
+    for(unsigned int i = 1; i < bodyPredicates.size(); i++) {
+        output << "," << bodyPredicates.at(i).toString();
     }
 
     output << ".";

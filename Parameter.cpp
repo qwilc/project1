@@ -10,10 +10,5 @@ Parameter::Parameter(bool isString, std::string value) {
 }
 
 std::string Parameter::toString() {
-    if(string) {
-        return "'" + value + "'";
-    }
-    else {
-        return value;
-    }
+    return value;
 }

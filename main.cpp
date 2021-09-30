@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
 
     Parser* parser = new Parser(lexer->getTokens());
 
-    parser->parse();
+    std::cout << parser->parse().toString() << std::endl;
 
     /*Parameter* parameter = new Parameter(true, "parameter");
     Predicate* predicate0 = new Predicate("predicate0");

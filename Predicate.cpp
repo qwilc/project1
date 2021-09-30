@@ -4,15 +4,16 @@
 
 #include "Predicate.h"
 #include <sstream>
+#include <iostream>
 
 std::string Predicate::toString() {
     std::stringstream output;
 
     output << id << "(";
-    output << parameters.at(0)->toString();
+    output << parameters.at(0).toString();
 
-    for(int i = 1; i < parameters.size(); i++) {
-        output << "," << parameters.at(i)->toString();
+    for(unsigned int i = 1; i < parameters.size(); i++) {
+        output << "," << parameters.at(i).toString();
     }
 
     output << ")";

@@ -36,6 +36,7 @@ private:
 public:
     Token(TokenType type, std::string description, int line);
     TokenType getType() {return type;}
+    std::string getDescription() {return description;}
     std::string toString();
 
 

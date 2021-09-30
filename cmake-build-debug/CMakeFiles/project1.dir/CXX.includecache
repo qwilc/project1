@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/qgwil/cs236/project1/Automaton.h
-Token.h
-C:/Users/qgwil/cs236/project1/Token.h
-
 C:/Users/qgwil/cs236/project1/DatalogProgram.h
 vector
 -
@@ -24,17 +20,15 @@ C:/Users/qgwil/cs236/project1/Predicate.h
 Rule.h
 C:/Users/qgwil/cs236/project1/Rule.h
 
-C:/Users/qgwil/cs236/project1/Lexer.h
-vector
--
-Automaton.h
-C:/Users/qgwil/cs236/project1/Automaton.h
-Token.h
-C:/Users/qgwil/cs236/project1/Token.h
-
 C:/Users/qgwil/cs236/project1/Parameter.h
 string
 -
+
+C:/Users/qgwil/cs236/project1/Parser.cpp
+iostream
+-
+Parser.h
+C:/Users/qgwil/cs236/project1/Parser.h
 
 C:/Users/qgwil/cs236/project1/Parser.h
 Token.h
@@ -64,17 +58,5 @@ iostream
 
 C:/Users/qgwil/cs236/project1/Token.h
 string
--
-
-C:/Users/qgwil/cs236/project1/main.cpp
-Lexer.h
-C:/Users/qgwil/cs236/project1/Lexer.h
-Parser.h
-C:/Users/qgwil/cs236/project1/Parser.h
-iostream
--
-string
--
-fstream
 -
 

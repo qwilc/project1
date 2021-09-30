@@ -12,12 +12,18 @@
 class Predicate {
 private:
     std::string id;
-    std::vector<Parameter*> parameters;
+    std::vector<Parameter> parameters;
 public:
-    Predicate(std::string id){this->id = id;}
-    void addParameter(Parameter* parameter) {parameters.push_back(parameter);}
     std::string toString();
 
+    void addParameter(Parameter parameter) {parameters.push_back(parameter);}
+    void setID(std::string newID) { this->id = newID;}
+    void addParameters(std::vector<Parameter> newParameters) {
+        this->parameters.insert(this->parameters.end(), newParameters.begin(), newParameters.end());
+    }
+
+    std::string getID() {return id;}
+    std::vector<Parameter> getParameters() {return parameters;}
 };
 
 

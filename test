@@ -1,37 +1,13 @@
-# COPYRIGHT © BRIGHAM YOUNG UNIVERSITY CS 236
-# FOR USE ONLY DURING SPRING 2021 SEMESTER
-# passoffInput22     FAILURE Period,35
-# Tests for students checking punctuation
-  #Schemes:
 Schemes:
-     #student(N,I,A,M)
-   student(N,I,A,M)
-     #WhoMajor(N,M)
-   WhoMajor(N,M)
+  snap(S,N,A,P)
+  HasSameAddress(X,Y)
 
-  #Facts:
 Facts:
-     #student('North', '51', '10 Main', 'CS').
-   student('North', '51', '10 Main', 'CS').
-     #student('Reagan','52', '11 Maple', 'CS').
-   student('Reagan','52', '11 Maple', 'CS').
-     #student('Clinton','53','12 Ashton', 'MATH').
-   student('Clinton','53','12 Ashton', 'MATH').
+  snap('12345','C. Brown','12 Apple','555-1234').
+  snap('33333','Snoopy','12 Apple','555-1234').
 
-  #Rules:
 Rules:
-     #WhoMajor(N,M) :- student(N,I,A,M).
-   WhoMajor(N,M) :- student(N,I,A,M).
-     #WhoMajor(N,M) :- student('Lucy',I,A,'Psychology').
-   WhoMajor(N,M) :- student('Lucy',I,A,'Psychology').
+  HasSameAddress(X,Y) :- snap(A,X,B,C),snap(D,Y,B,E).
 
-  #Queries:
 Queries:
-    #WhoMajor('North',M)?
-  WhoMajor('North',M)?
-    #WhoMajor(N,'MATH')?
-  WhoMajor(N,'MATH')?
-    #WhoMajor('Charlie Brown','Human Relations')?
-  WhoMajor('Charlie Brown','Human Relations')?
-    #WhoMajor('Snoopy','Drama').
-  WhoMajor('Snoopy','Drama').
+  HasSameAddress('Snoopy',Who)?
