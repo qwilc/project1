@@ -11,11 +11,36 @@
 
 class Parser {
 private:
-    //
+    int index = 0;
+    std::vector<Token*> tokens;
+
+    void match(TokenType type);
+    TokenType getNextTokenType() {return tokens.at(index)->getType();}
+    bool notFollow(TokenType followSet) {return getNextTokenType() != followSet;}
+
+    void parseDatalog();
+    void parseScheme();
+    void parseSchemeList();
+    void parseFactList();
+    void parseRuleList();
+    void parseQueryList();
+
+    void parseFact();
+    void parseRule();
+    void parseQuery();
+
+    void parseHeadPredicate();
+    void parsePredicate();
+
+    void parsePredicateList();
+    void parseParameterList();
+    void parseStringList();
+    void parseIDList();
+    void parseParameter();
 
 public:
-    Parser();
-    void parse(std::vector<Token*> tokens);
+    Parser(std::vector<Token*> tokens);
+    void parse();
 };
 
 

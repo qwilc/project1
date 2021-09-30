@@ -25,6 +25,11 @@ CMakeFiles/project1.dir/Lexer.cpp.obj: ../Lexer.h
 CMakeFiles/project1.dir/Lexer.cpp.obj: ../StringAutomaton.h
 CMakeFiles/project1.dir/Lexer.cpp.obj: ../Token.h
 
+CMakeFiles/project1.dir/Parser.cpp.obj: ../DatalogProgram.h
+CMakeFiles/project1.dir/Parser.cpp.obj: ../Parser.cpp
+CMakeFiles/project1.dir/Parser.cpp.obj: ../Parser.h
+CMakeFiles/project1.dir/Parser.cpp.obj: ../Token.h
+
 CMakeFiles/project1.dir/StringAutomaton.cpp.obj: ../Automaton.h
 CMakeFiles/project1.dir/StringAutomaton.cpp.obj: ../StringAutomaton.cpp
 CMakeFiles/project1.dir/StringAutomaton.cpp.obj: ../StringAutomaton.h
@@ -34,7 +39,9 @@ CMakeFiles/project1.dir/Token.cpp.obj: ../Token.cpp
 CMakeFiles/project1.dir/Token.cpp.obj: ../Token.h
 
 CMakeFiles/project1.dir/main.cpp.obj: ../Automaton.h
+CMakeFiles/project1.dir/main.cpp.obj: ../DatalogProgram.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Lexer.h
+CMakeFiles/project1.dir/main.cpp.obj: ../Parser.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Token.h
 CMakeFiles/project1.dir/main.cpp.obj: ../main.cpp
 

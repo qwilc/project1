@@ -74,10 +74,13 @@ void Lexer::Run(std::string& input) {
         }
 
         // Here is the "Max" part of the algorithm
+        //Does not create COMMENT tokens
         if (maxRead > 0) {
-            newToken = maxAutomaton->CreateToken(input.substr(0, maxRead), lineNum);
+            if(maxAutomaton->getType() != TokenType::COMMENT) {
+                newToken = maxAutomaton->CreateToken(input.substr(0, maxRead), lineNum);
+                tokens.push_back(newToken);
+            }
             lineNum += maxAutomaton->NewLinesRead();
-            tokens.push_back(newToken);
         }
         // No automaton accepted input
         // Create single character undefined token

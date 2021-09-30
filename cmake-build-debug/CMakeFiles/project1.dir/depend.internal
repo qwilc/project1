@@ -25,6 +25,11 @@ CMakeFiles/project1.dir/Lexer.cpp.obj
  C:/Users/qgwil/cs236/project1/Lexer.h
  C:/Users/qgwil/cs236/project1/StringAutomaton.h
  C:/Users/qgwil/cs236/project1/Token.h
+CMakeFiles/project1.dir/Parser.cpp.obj
+ C:/Users/qgwil/cs236/project1/DatalogProgram.h
+ C:/Users/qgwil/cs236/project1/Parser.cpp
+ C:/Users/qgwil/cs236/project1/Parser.h
+ C:/Users/qgwil/cs236/project1/Token.h
 CMakeFiles/project1.dir/StringAutomaton.cpp.obj
  C:/Users/qgwil/cs236/project1/Automaton.h
  C:/Users/qgwil/cs236/project1/StringAutomaton.cpp
@@ -35,6 +40,8 @@ CMakeFiles/project1.dir/Token.cpp.obj
  C:/Users/qgwil/cs236/project1/Token.h
 CMakeFiles/project1.dir/main.cpp.obj
  C:/Users/qgwil/cs236/project1/Automaton.h
+ C:/Users/qgwil/cs236/project1/DatalogProgram.h
  C:/Users/qgwil/cs236/project1/Lexer.h
+ C:/Users/qgwil/cs236/project1/Parser.h
  C:/Users/qgwil/cs236/project1/Token.h
  C:/Users/qgwil/cs236/project1/main.cpp

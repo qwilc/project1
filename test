@@ -1,13 +1,13 @@
-# COPYRIGHT © BRIGHAM YOUNG UNIVERSITY CS 236
-# FOR USE ONLY DURING SPRING 2021 SEMESTER
-
-#|
-
-#####
-|||||
-#####
-|||||
-
-#|
-
-#
+Schemes:
+    snap(S,N,A,P) 
+    NameHasID(N,S)
+ 
+Facts:
+    snap('12345','C. Brown','12 Apple','555-1234').
+    snap('67890','L. Van Pelt','34 Pear','555-5678').
+ 
+Rules:
+    NameHasID(N,S) :- snap(S,N,A,P).
+ 
+Queries:
+    NameHasID('Snoopy',Id)?

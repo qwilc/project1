@@ -6,17 +6,21 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/qgwil/cs236/project1/Automaton.h
+C:/Users/qgwil/cs236/project1/DatalogProgram.h
+
+C:/Users/qgwil/cs236/project1/Parser.cpp
+iostream
+-
+Parser.h
+C:/Users/qgwil/cs236/project1/Parser.h
+
+C:/Users/qgwil/cs236/project1/Parser.h
 Token.h
 C:/Users/qgwil/cs236/project1/Token.h
-
-C:/Users/qgwil/cs236/project1/CommentAutomaton.cpp
-CommentAutomaton.h
-C:/Users/qgwil/cs236/project1/CommentAutomaton.h
-
-C:/Users/qgwil/cs236/project1/CommentAutomaton.h
-Automaton.h
-C:/Users/qgwil/cs236/project1/Automaton.h
+DatalogProgram.h
+C:/Users/qgwil/cs236/project1/DatalogProgram.h
+vector
+-
 
 C:/Users/qgwil/cs236/project1/Token.h
 string
