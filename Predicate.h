@@ -14,6 +14,8 @@ private:
     std::string id;
     std::vector<Parameter*> parameters;
 public:
+    Predicate(std::string id){this->id = id;}
+    void addParameter(Parameter* parameter) {parameters.push_back(parameter);}
     std::string toString();
 
 };
