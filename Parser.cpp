@@ -10,14 +10,7 @@ Parser::Parser(std::vector<Token*> tokens) {
 }
 
 DatalogProgram Parser::parse() {
-    try {
-        return parseDatalog();
-    }
-    catch (Token * error) {
-        std::cout<<"Failure!"<<std::endl<<"  "<<error->toString()<<std::endl;
-    }
-    DatalogProgram dummy;
-    return dummy;
+    return parseDatalog();
 }
 
 Token * Parser::match(TokenType type) {
