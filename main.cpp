@@ -32,6 +32,7 @@ int main(int argc, char** argv) {
     }
     catch (Token * error) {
         std::cout<<"Failure!"<<std::endl<<"  "<<error->toString()<<std::endl;
+        return 0;
     }
 
     /*Parameter* parameter = new Parameter(true, "parameter");
