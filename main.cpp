@@ -25,13 +25,14 @@ int main(int argc, char** argv) {
     //std::cout << lexer->toString();
 
     Parser* parser = new Parser(lexer->getTokens());
-
+    std::string parserOutput;
     try {
-        std::cout << parser->parse().toString() << std::endl;
+        parserOutput = parser->parse().toString();
     }
     catch (Token * error) {
         std::cout<<"Failure!"<<std::endl<<"  "<<error->toString()<<std::endl;
     }
+    std::cout << parserOutput << std::endl;
 
     /*Parameter* parameter = new Parameter(true, "parameter");
     Predicate* predicate0 = new Predicate("predicate0");
