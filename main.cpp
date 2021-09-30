@@ -28,11 +28,11 @@ int main(int argc, char** argv) {
     std::string parserOutput;
     try {
         parserOutput = parser->parse().toString();
+        std::cout << parserOutput;
     }
     catch (Token * error) {
         std::cout<<"Failure!"<<std::endl<<"  "<<error->toString()<<std::endl;
     }
-    std::cout << parserOutput;
 
     /*Parameter* parameter = new Parameter(true, "parameter");
     Predicate* predicate0 = new Predicate("predicate0");
