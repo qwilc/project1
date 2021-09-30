@@ -1,4 +1,4 @@
-NUM?=1
+NUM?=2
 numbers=21 22 23 24 25 26 27 28 61 62
 tests=project$(NUM)-exampleIO
 
