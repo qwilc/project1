@@ -5,13 +5,20 @@
 #ifndef PROJECT1_DATABASE_H
 #define PROJECT1_DATABASE_H
 
+#include<map>
+#include "Relation.h"
 
 class Database {
 private:
-    //store Relations in something
+    std::map<std::string, Relation*> relations;
 public:
-    //AddRelation
-    //Need a way to locate a given Relation and modify it
+    void AddRelation(Relation* relation) {
+        relations.insert(std::pair<std::string,Relation*> (relation->GetName(), relation));
+    }
+    std::map<std::string, Relation*> GetRelations() {
+        return relations;
+    }
+    Relation* GetRelation(const std::string& relationName) {return relations.at(relationName);}
 };
 
 

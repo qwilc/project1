@@ -1,5 +1,6 @@
 #include "Lexer.h"
 #include "Parser.h"
+#include "Database.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -25,15 +26,13 @@ int main(int argc, char** argv) {
     //std::cout << lexer->toString();
 
     Parser* parser = new Parser(lexer->getTokens());
-    std::string parserOutput;
     try {
-        parserOutput = parser->parse().toString();
+        DatalogProgram datalogProgram = parser->parse();
     }
     catch (Token * error) {
         std::cout<<"Failure!"<<std::endl<<"  "<<error->toString()<<std::endl;
         return 0;
     }
-    std::cout << parserOutput;
 
     /*Parameter* parameter = new Parameter(true, "parameter");
     Predicate* predicate0 = new Predicate("predicate0");
@@ -56,6 +55,24 @@ int main(int argc, char** argv) {
     datalog->addToDomain("hi");
 
     std::cout << datalog->toString() << std::endl;*/
+
+    //TEST CODE TODO: Remove when done with all this
+    /*std::vector<std::string> tup_val = {"abc", "def", "hij"};
+    std::vector<std::string> head_val = {"1", "2", "3"};
+    std::string name = "NAME";
+    Tuple* tuple = new Tuple(tup_val);
+    Header* header = new Header(head_val);
+    Relation* relation = new Relation(name, header);
+    Database* database = new Database();
+
+    database->AddRelation(relation);
+    database->GetRelations().at(0)->AddTuple(tuple);
+
+    std::cout<<database->GetRelations().at(0)->GetName()<<std::endl;
+    database->GetRelations().at(0)->GetHeader()->Print();
+    for(Tuple* tup : database->GetRelations().at(0)->GetTuples()) {
+        tup->Print();
+    }*/
 
     delete lexer;
 
