@@ -38,6 +38,9 @@ public:
     void AddTuple(const Tuple& newTuple) {
         tuples.insert(newTuple);
     }
+    void SetTuples(std::set<Tuple> newTuples) {
+        this->tuples = newTuples;
+    }
     std::string GetName() {
         return name;
     }
@@ -87,7 +90,11 @@ public:
 
         return newRelation;
     }
-    //Relation Rename(Header hewHeader)
+    Relation Rename(std::vector<std::string> newHeader) {
+        Relation newRelation("", new Header(newHeader));
+        newRelation.SetTuples(this->tuples);
+        return newRelation;
+    }
 };
 
 

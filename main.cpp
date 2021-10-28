@@ -87,8 +87,11 @@ int main(int argc, char** argv) {
     //Relation select2 = database->GetRelations().at(name)->Select(0, 2);
     //std::cout << select2.toString();
 
-    Relation project = database->GetRelations().at(name)->Project({0,0});
-    std::cout << project.toString();
+    //Relation project = database->GetRelations().at(name)->Project({0,0});
+    //std::cout << project.toString();
+
+    Relation rename = database->GetRelations().at(name)->Rename({"Zero","One","Two"});
+    std::cout << rename.toString();
 
     /*std::cout<<database->GetRelations().at(0)->GetName()<<std::endl;
     database->GetRelations().at(0)->GetHeader()->Print();
