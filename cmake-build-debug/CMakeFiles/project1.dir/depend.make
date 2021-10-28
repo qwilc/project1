@@ -22,6 +22,9 @@ CMakeFiles/project1.dir/IDAutomaton.cpp.obj: ../IDAutomaton.cpp
 CMakeFiles/project1.dir/IDAutomaton.cpp.obj: ../IDAutomaton.h
 CMakeFiles/project1.dir/IDAutomaton.cpp.obj: ../Token.h
 
+CMakeFiles/project1.dir/Interpreter.cpp.obj: ../Interpreter.cpp
+CMakeFiles/project1.dir/Interpreter.cpp.obj: ../Interpreter.h
+
 CMakeFiles/project1.dir/Lexer.cpp.obj: ../Automaton.h
 CMakeFiles/project1.dir/Lexer.cpp.obj: ../CommentAutomaton.h
 CMakeFiles/project1.dir/Lexer.cpp.obj: ../ExactMatchAutomaton.h
@@ -60,12 +63,16 @@ CMakeFiles/project1.dir/Token.cpp.obj: ../Token.cpp
 CMakeFiles/project1.dir/Token.cpp.obj: ../Token.h
 
 CMakeFiles/project1.dir/main.cpp.obj: ../Automaton.h
+CMakeFiles/project1.dir/main.cpp.obj: ../Database.h
 CMakeFiles/project1.dir/main.cpp.obj: ../DatalogProgram.h
+CMakeFiles/project1.dir/main.cpp.obj: ../Header.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Lexer.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Parameter.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Parser.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Predicate.h
+CMakeFiles/project1.dir/main.cpp.obj: ../Relation.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Rule.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Token.h
+CMakeFiles/project1.dir/main.cpp.obj: ../Tuple.h
 CMakeFiles/project1.dir/main.cpp.obj: ../main.cpp
 

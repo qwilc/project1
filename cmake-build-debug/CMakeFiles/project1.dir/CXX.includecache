@@ -10,6 +10,12 @@ C:/Users/qgwil/cs236/project1/Automaton.h
 Token.h
 C:/Users/qgwil/cs236/project1/Token.h
 
+C:/Users/qgwil/cs236/project1/Database.h
+map
+-
+Relation.h
+C:/Users/qgwil/cs236/project1/Relation.h
+
 C:/Users/qgwil/cs236/project1/DatalogProgram.h
 vector
 -
@@ -23,6 +29,14 @@ Predicate.h
 C:/Users/qgwil/cs236/project1/Predicate.h
 Rule.h
 C:/Users/qgwil/cs236/project1/Rule.h
+
+C:/Users/qgwil/cs236/project1/Header.h
+vector
+-
+string
+-
+iostream
+-
 
 C:/Users/qgwil/cs236/project1/Lexer.h
 vector
@@ -52,6 +66,16 @@ vector
 Parameter.h
 C:/Users/qgwil/cs236/project1/Parameter.h
 
+C:/Users/qgwil/cs236/project1/Relation.h
+set
+-
+sstream
+-
+Tuple.h
+C:/Users/qgwil/cs236/project1/Tuple.h
+Header.h
+C:/Users/qgwil/cs236/project1/Header.h
+
 C:/Users/qgwil/cs236/project1/Rule.h
 Predicate.h
 C:/Users/qgwil/cs236/project1/Predicate.h
@@ -66,11 +90,21 @@ C:/Users/qgwil/cs236/project1/Token.h
 string
 -
 
+C:/Users/qgwil/cs236/project1/Tuple.h
+vector
+-
+string
+-
+iostream
+-
+
 C:/Users/qgwil/cs236/project1/main.cpp
 Lexer.h
 C:/Users/qgwil/cs236/project1/Lexer.h
 Parser.h
 C:/Users/qgwil/cs236/project1/Parser.h
+Database.h
+C:/Users/qgwil/cs236/project1/Database.h
 iostream
 -
 string

@@ -32,11 +32,9 @@ add_executable(project1
         Rule.h
         Rule.cpp
         Database.h
-        Database.cpp
         Relation.h
-        Relation.cpp
         Header.h
-        Header.cpp
         Tuple.h
-        Tuple.cpp
+        Interpreter.cpp
+        Interpreter.h
         )

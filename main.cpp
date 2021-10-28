@@ -57,18 +57,37 @@ int main(int argc, char** argv) {
     std::cout << datalog->toString() << std::endl;*/
 
     //TEST CODE TODO: Remove when done with all this
-    /*std::vector<std::string> tup_val = {"abc", "def", "hij"};
+
+    std::vector<std::vector<std::string>> tuples {
+            {"abc", "def", "hij"},
+            {"klm", "nop", "qrs"},
+            {"abc", "abc", "abc"},
+            {"abc", "abc", "def"},
+            {"def", "abc", "abc"},
+            {"abc", "def", "abc"},
+            {"qrs", "abc", "qrs"}
+    };
+
+    std::vector<std::string> tup1 = {"abc", "def", "hij"};
+    std::vector<std::string> tup2 = {"klm", "nop", "qrs"};
     std::vector<std::string> head_val = {"1", "2", "3"};
     std::string name = "NAME";
-    Tuple* tuple = new Tuple(tup_val);
+    Tuple tuple1(tup1);
+    Tuple tuple2(tup2);
     Header* header = new Header(head_val);
     Relation* relation = new Relation(name, header);
     Database* database = new Database();
 
     database->AddRelation(relation);
-    database->GetRelations().at(0)->AddTuple(tuple);
 
-    std::cout<<database->GetRelations().at(0)->GetName()<<std::endl;
+    for(auto & tuple : tuples) {
+        database->GetRelations()[name]->AddTuple(tuple);
+    }
+
+    Relation select2 = database->GetRelations().at(name)->Select(0, 2);
+    std::cout << select2.toString();
+
+    /*std::cout<<database->GetRelations().at(0)->GetName()<<std::endl;
     database->GetRelations().at(0)->GetHeader()->Print();
     for(Tuple* tup : database->GetRelations().at(0)->GetTuples()) {
         tup->Print();
