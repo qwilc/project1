@@ -70,7 +70,7 @@ int main(int argc, char** argv) {
 
     std::vector<std::string> tup1 = {"abc", "def", "hij"};
     std::vector<std::string> tup2 = {"klm", "nop", "qrs"};
-    std::vector<std::string> head_val = {"1", "2", "3"};
+    std::vector<std::string> head_val = {"0", "1", "2"};
     std::string name = "NAME";
     Tuple tuple1(tup1);
     Tuple tuple2(tup2);
@@ -84,8 +84,11 @@ int main(int argc, char** argv) {
         database->GetRelations()[name]->AddTuple(tuple);
     }
 
-    Relation select2 = database->GetRelations().at(name)->Select(0, 2);
-    std::cout << select2.toString();
+    //Relation select2 = database->GetRelations().at(name)->Select(0, 2);
+    //std::cout << select2.toString();
+
+    Relation project = database->GetRelations().at(name)->Project({0,0});
+    std::cout << project.toString();
 
     /*std::cout<<database->GetRelations().at(0)->GetName()<<std::endl;
     database->GetRelations().at(0)->GetHeader()->Print();

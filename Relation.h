@@ -47,7 +47,7 @@ public:
     std::set<Tuple> GetTuples() {
         return tuples;
     }
-    Relation Select(int index, std::string value) {
+    Relation Select(int index, const std::string& value) {
         Relation newRelation("", this->header); //TODO: Does it matter what the name is? I don't add it to the map, right?
 
         for(const Tuple& tuple : tuples) {
@@ -69,7 +69,24 @@ public:
 
         return newRelation;
     }
-    //Relation Project(list of positions)
+    Relation Project(std::vector<int> indices) {
+        std::vector<std::string> attributes;
+        for(int i : indices) { //TODO: is there a way to combine the for loops?
+            attributes.push_back(header->GetAttributes()[i]);
+        }
+
+        Relation newRelation("", new Header(attributes));
+
+        for(const Tuple& tuple : tuples) {
+            std::vector<std::string> newValues;
+            for(int i : indices) {
+                newValues.push_back(tuple.GetValues()[i]);
+            }
+            newRelation.AddTuple(Tuple(newValues));
+        }
+
+        return newRelation;
+    }
     //Relation Rename(Header hewHeader)
 };
 
