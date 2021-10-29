@@ -30,7 +30,7 @@ std::string DatalogProgram::toString() {
 
     output << "Domain(" << domain.size() << "):" << std::endl;
     for(std::string s : domain) {
-        output << "  " << s << std::endl; //TODO: should there be a new line at the very end?
+        output << "  " << s << std::endl;
     }
 
     return output.str();

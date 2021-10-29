@@ -12,7 +12,7 @@ class Tuple {
 private:
     std::vector<std::string> values;
 public:
-    Tuple(const std::vector<std::string>& values) { //TODO: Add values one at a time as we toString parameters?
+    Tuple(const std::vector<std::string>& values) {
         this->values = values;
     }
     bool operator< (const Tuple& other) const {

@@ -49,10 +49,8 @@ DatalogProgram Parser::parseDatalog() {
             datalogProgram.addToDomain(param.toString());
         }
     }
-    //for each parameter in parameters
-    //insert description in domain set
 
-    std::cout<<"Success!"<<std::endl;
+    //std::cout<<"Success!"<<std::endl;
     return datalogProgram;
 }
 
