@@ -22,8 +22,16 @@ CMakeFiles/project1.dir/IDAutomaton.cpp.obj: ../IDAutomaton.cpp
 CMakeFiles/project1.dir/IDAutomaton.cpp.obj: ../IDAutomaton.h
 CMakeFiles/project1.dir/IDAutomaton.cpp.obj: ../Token.h
 
+CMakeFiles/project1.dir/Interpreter.cpp.obj: ../Database.h
+CMakeFiles/project1.dir/Interpreter.cpp.obj: ../DatalogProgram.h
+CMakeFiles/project1.dir/Interpreter.cpp.obj: ../Header.h
 CMakeFiles/project1.dir/Interpreter.cpp.obj: ../Interpreter.cpp
 CMakeFiles/project1.dir/Interpreter.cpp.obj: ../Interpreter.h
+CMakeFiles/project1.dir/Interpreter.cpp.obj: ../Parameter.h
+CMakeFiles/project1.dir/Interpreter.cpp.obj: ../Predicate.h
+CMakeFiles/project1.dir/Interpreter.cpp.obj: ../Relation.h
+CMakeFiles/project1.dir/Interpreter.cpp.obj: ../Rule.h
+CMakeFiles/project1.dir/Interpreter.cpp.obj: ../Tuple.h
 
 CMakeFiles/project1.dir/Lexer.cpp.obj: ../Automaton.h
 CMakeFiles/project1.dir/Lexer.cpp.obj: ../CommentAutomaton.h
@@ -66,6 +74,7 @@ CMakeFiles/project1.dir/main.cpp.obj: ../Automaton.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Database.h
 CMakeFiles/project1.dir/main.cpp.obj: ../DatalogProgram.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Header.h
+CMakeFiles/project1.dir/main.cpp.obj: ../Interpreter.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Lexer.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Parameter.h
 CMakeFiles/project1.dir/main.cpp.obj: ../Parser.h
