@@ -1,6 +1,7 @@
 #include "Lexer.h"
 #include "Parser.h"
 #include "Database.h"
+#include "Interpreter.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -23,11 +24,11 @@ int main(int argc, char** argv) {
     }
 
     lexer->Run(inputStr);
-    //std::cout << lexer->toString();
+    DatalogProgram datalogProgram;
 
     Parser* parser = new Parser(lexer->getTokens());
     try {
-        DatalogProgram datalogProgram = parser->parse();
+        datalogProgram = parser->parse();
     }
     catch (Token * error) {
         std::cout<<"Failure!"<<std::endl<<"  "<<error->toString()<<std::endl;
@@ -68,12 +69,8 @@ int main(int argc, char** argv) {
             {"qrs", "abc", "qrs"}
     };
 
-    std::vector<std::string> tup1 = {"abc", "def", "hij"};
-    std::vector<std::string> tup2 = {"klm", "nop", "qrs"};
     std::vector<std::string> head_val = {"0", "1", "2"};
-    std::string name = "NAME";
-    Tuple tuple1(tup1);
-    Tuple tuple2(tup2);
+    std::string name = "ID";
     Header* header = new Header(head_val);
     Relation* relation = new Relation(name, header);
     Database* database = new Database();
@@ -84,14 +81,26 @@ int main(int argc, char** argv) {
         database->GetRelations()[name]->AddTuple(tuple);
     }
 
-    //Relation select2 = database->GetRelations().at(name)->Select(0, 2);
-    //std::cout << select2.toString();
+    /*Parameter* param1 = new Parameter(true, "abc");
+    Parameter* param2 = new Parameter(false, "X");
+    Parameter* param3 = new Parameter(false, "X");
+    Predicate* predicate0 = new Predicate();
+    Predicate* predicate1 = new Predicate("predicate1");
+    Predicate* predicate2 = new Predicate("predicate2");
 
-    //Relation project = database->GetRelations().at(name)->Project({0,0});
-    //std::cout << project.toString();
+    predicate0->addParameter(*param1);
+    predicate0->addParameter(*param2);
+    predicate0->addParameter(*param3);
 
-    Relation rename = database->GetRelations().at(name)->Rename({"Zero","One","Two"});
-    std::cout << rename.toString();
+    predicate0->setID(name);*/
+
+    Interpreter interpreter(&datalogProgram, database);
+    //Relation* testRel = interpreter.evaluatePredicate(*predicate0);
+    interpreter.Interpret();
+
+    /*for(std::pair<std::string, Relation*> r : database->GetRelations()) {
+        std::cout << r.second->toString();
+    }*/
 
     /*std::cout<<database->GetRelations().at(0)->GetName()<<std::endl;
     database->GetRelations().at(0)->GetHeader()->Print();

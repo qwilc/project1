@@ -1,23 +1,19 @@
+# COPYRIGHT © BRIGHAM YOUNG UNIVERSITY CS 236
+# FOR USE ONLY DURING SUMMER 2021 SEMESTER
 Schemes:
-    f(A,B)
-    g(C,D)
-    r(E,F)
+    SK(X,Y)
 
 Facts:
-    f('1','2').
-    f('4','3').
-    g('3','2').
-    r('1','4').
-    r('2','5').
-    r('3','5').
-    r('4','1').
+    SK('a','c').
+    SK('b','c').
+    SK('a','b').
 
 Rules:
-    r(A,B) :- f(A,X),g(B,X).
-    f(C,D) :- r(D,C).
-    g(E,F) :- f(E,X),r(X,F).
+    SK(A,B) :- SK(A,B).
 
 Queries:
-    f('3',Z)?
-    r(Y,'3')?
-    f(W,X)?
+    SK(A,'c')?
+    SK('b','c')?
+    SK('c','c')?
+    SK(A,B)?
+

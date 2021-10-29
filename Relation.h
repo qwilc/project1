@@ -23,13 +23,13 @@ public:
     std::string toString() {
         std::stringstream output;
         for(Tuple tuple : tuples) {
+            output << "\n";
             for(unsigned int i = 0; i < header->GetAttributes().size(); i++) {
-                output << header->GetAttributes()[i] << "=\'" << tuple.GetValues()[i] << "\'";
-                if(i + 1 < header->GetAttributes().size()) {
+                output << "  " << header->GetAttributes()[i] << "=" << tuple.GetValues()[i];
+                if (i + 1 < header->GetAttributes().size()) {
                     output << ", ";
                 }
             }
-            output << "\n";
         }
 
         return output.str();
@@ -51,7 +51,7 @@ public:
         return tuples;
     }
     Relation Select(int index, const std::string& value) {
-        Relation newRelation("", this->header); //TODO: Does it matter what the name is? I don't add it to the map, right?
+        Relation newRelation(this->name, this->header);
 
         for(const Tuple& tuple : tuples) {
             if(tuple.GetValues()[index] == value) {
@@ -62,7 +62,7 @@ public:
         return newRelation;
     }
     Relation Select(int idx1, int idx2) {
-        Relation newRelation("", this->header);
+        Relation newRelation(this->name, this->header);
 
         for(const Tuple& tuple : tuples) {
             if(tuple.GetValues()[idx1] == tuple.GetValues()[idx2]) {
@@ -78,7 +78,7 @@ public:
             attributes.push_back(header->GetAttributes()[i]);
         }
 
-        Relation newRelation("", new Header(attributes));
+        Relation newRelation(this->name, new Header(attributes));
 
         for(const Tuple& tuple : tuples) {
             std::vector<std::string> newValues;
@@ -91,7 +91,7 @@ public:
         return newRelation;
     }
     Relation Rename(std::vector<std::string> newHeader) {
-        Relation newRelation("", new Header(newHeader));
+        Relation newRelation(this->name, new Header(newHeader));
         newRelation.SetTuples(this->tuples);
         return newRelation;
     }

@@ -18,7 +18,6 @@ public:
     std::map<std::string, Relation*> GetRelations() {
         return relations;
     }
-    Relation* GetRelation(const std::string& relationName) {return relations.at(relationName);}
 };
 
 
