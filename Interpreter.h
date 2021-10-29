@@ -42,7 +42,7 @@ public:
         std::stringstream output;
         for(Predicate query : datalogProgram->getQueries()) {
             Relation* relation = evaluatePredicate(query);
-            output << query.toString() << " ";
+            output << query.toString() << "? ";
             if(relation->GetTuples().size() != 0) {
                 output << "Yes(" << relation->GetTuples().size() << ")";
                 output << relation->toString();
