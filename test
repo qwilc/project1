@@ -2,12 +2,18 @@
 # FOR USE ONLY DURING SUMMER 2021 SEMESTER
 Schemes:
     SK(X,Y)
+
 Facts:
-    SK('a','a').
+    SK('a','c').
+    SK('b','c').
+    SK('a','b').
+
 Rules:
     SK(A,B) :- SK(A,B).
-Queries:
-    SK(D,C)?
-    SK(A,'c')?
 
+Queries:
+    SK(A,'c')?
+    SK('b','c')?
+    SK('c','c')?
+    SK(A,B)?
 

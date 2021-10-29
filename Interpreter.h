@@ -44,7 +44,7 @@ public:
             Relation* relation = evaluatePredicate(query);
             output << query.toString() << "? ";
             if(relation->GetTuples().size() != 0) {
-                output << "Yes(" << relation->GetTuples().size() << ")";
+                output << "Yes(" << relation->GetTuples().size() << ")\n";
                 output << relation->toString();
             }
             else {

@@ -23,16 +23,19 @@ public:
     std::string toString() {
         std::stringstream output;
         for(Tuple tuple : tuples) {
-            output << "\n  ";
+            if(header->GetAttributes().size()!=0) {
+                output << "  ";
+            }
             for(unsigned int i = 0; i < header->GetAttributes().size(); i++) {
                 output << header->GetAttributes()[i] << "=" << tuple.GetValues()[i];
                 if (i + 1 < header->GetAttributes().size()) {
                     output << ", ";
                 }
+                else {
+                    output << "\n";
+                }
             }
-            output << "\n";
         }
-
         return output.str();
     }
 
