@@ -250,33 +250,6 @@ IDAutomaton.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\project1.dir\build.make CMakeFiles/project1.dir/IDAutomaton.cpp.s
 .PHONY : IDAutomaton.cpp.s
 
-Interpreter.obj: Interpreter.cpp.obj
-
-.PHONY : Interpreter.obj
-
-# target to build an object file
-Interpreter.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\project1.dir\build.make CMakeFiles/project1.dir/Interpreter.cpp.obj
-.PHONY : Interpreter.cpp.obj
-
-Interpreter.i: Interpreter.cpp.i
-
-.PHONY : Interpreter.i
-
-# target to preprocess a source file
-Interpreter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\project1.dir\build.make CMakeFiles/project1.dir/Interpreter.cpp.i
-.PHONY : Interpreter.cpp.i
-
-Interpreter.s: Interpreter.cpp.s
-
-.PHONY : Interpreter.s
-
-# target to generate assembly for a file
-Interpreter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\project1.dir\build.make CMakeFiles/project1.dir/Interpreter.cpp.s
-.PHONY : Interpreter.cpp.s
-
 Lexer.obj: Lexer.cpp.obj
 
 .PHONY : Lexer.obj
@@ -514,9 +487,6 @@ help:
 	@echo ... IDAutomaton.obj
 	@echo ... IDAutomaton.i
 	@echo ... IDAutomaton.s
-	@echo ... Interpreter.obj
-	@echo ... Interpreter.i
-	@echo ... Interpreter.s
 	@echo ... Lexer.obj
 	@echo ... Lexer.i
 	@echo ... Lexer.s

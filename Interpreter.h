@@ -38,12 +38,50 @@ public:
         }
     }
 
+    void EvaluateRules() {
+        std::cout << "Rule Evaluation\n";
+        bool wasChanged = true;
+        unsigned int numPasses = 0;
+
+        while(wasChanged) {
+            wasChanged = false;
+            numPasses++;
+
+            for (Rule rule : datalogProgram->getRules()) {
+                std::cout << rule.toString();
+                std::vector<Predicate> predicates = rule.GetBodyPredicates();
+                Relation *joinedRelation = evaluatePredicate(predicates[0]);
+                for (unsigned int i = 1; i < predicates.size(); i++) {
+                    Relation *relation = evaluatePredicate(predicates[i]);
+                    *joinedRelation = joinedRelation->Join(relation);
+                }
+
+                std::vector<unsigned int> projectVect;
+                for (Parameter col : rule.GetHeadPredicate().getParameters()) {
+                    std::vector<std::string> joinedHeader = joinedRelation->GetHeader()->GetAttributes();
+                    unsigned int idx =
+                            find(joinedHeader.begin(), joinedHeader.end(), col.toString()) - joinedHeader.begin();
+                    projectVect.push_back(idx);
+                }
+
+                *joinedRelation = joinedRelation->Project(projectVect);
+
+                std::string ruleID = rule.GetHeadPredicate().getID();
+                Relation *matchingRelation = database->GetRelations()[ruleID];
+                *joinedRelation = joinedRelation->Rename(matchingRelation->GetHeader()->GetAttributes());
+
+                matchingRelation->Unite(joinedRelation, wasChanged);
+            }
+        }
+        std::cout << "\nSchemes populated after " << numPasses << " passes through the Rules.\n\n";
+    }
+
     std::string EvaluateQueries() {
         std::stringstream output;
         for(Predicate query : datalogProgram->getQueries()) {
             Relation* relation = evaluatePredicate(query);
             output << query.toString() << "? ";
-            if(relation->GetTuples().size() != 0) {
+            if(!relation->GetTuples().empty()) {
                 output << "Yes(" << relation->GetTuples().size() << ")\n";
                 output << relation->toString();
             }
@@ -79,7 +117,7 @@ public:
             }
         }
 
-        std::vector<int> projectVector;
+        std::vector<unsigned int> projectVector;
         for(const std::string& i : varVector) {
             projectVector.push_back(varMap[i]);
         }
@@ -98,6 +136,7 @@ public:
     void Interpret() {
         EvaluateSchemes();
         EvaluateFacts();
+        EvaluateRules();
         std::cout << EvaluateQueries();
     }
 };

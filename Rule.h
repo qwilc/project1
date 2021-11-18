@@ -24,6 +24,8 @@ public:
     void addBodyPredicate(std::vector<Predicate> predicates) {
         bodyPredicates.insert(bodyPredicates.end(), predicates.begin(), predicates.end());
     }
+    std::vector<Predicate> GetBodyPredicates() {return bodyPredicates;}
+    Predicate GetHeadPredicate() {return headPredicate;}
 };
 
 

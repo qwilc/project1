@@ -35,6 +35,5 @@ add_executable(project1
         Relation.h
         Header.h
         Tuple.h
-        Interpreter.cpp
         Interpreter.h
         )

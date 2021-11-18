@@ -38,10 +38,6 @@ string
 iostream
 -
 
-C:/Users/qgwil/cs236/project1/Interpreter.cpp
-Interpreter.h
-C:/Users/qgwil/cs236/project1/Interpreter.h
-
 C:/Users/qgwil/cs236/project1/Interpreter.h
 algorithm
 -
@@ -82,6 +78,8 @@ C:/Users/qgwil/cs236/project1/Relation.h
 set
 -
 sstream
+-
+algorithm
 -
 Tuple.h
 C:/Users/qgwil/cs236/project1/Tuple.h

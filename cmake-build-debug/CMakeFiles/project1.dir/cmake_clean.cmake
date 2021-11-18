@@ -3,7 +3,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/project1.dir/DatalogProgram.cpp.obj"
   "CMakeFiles/project1.dir/ExactMatchAutomaton.cpp.obj"
   "CMakeFiles/project1.dir/IDAutomaton.cpp.obj"
-  "CMakeFiles/project1.dir/Interpreter.cpp.obj"
   "CMakeFiles/project1.dir/Lexer.cpp.obj"
   "CMakeFiles/project1.dir/Parameter.cpp.obj"
   "CMakeFiles/project1.dir/Parser.cpp.obj"

@@ -23,6 +23,7 @@ public:
         for(std::string attribute : attributes) {
             std::cout << attribute << ", ";
         }
+        std::cout << std::endl;
     }
 };
 

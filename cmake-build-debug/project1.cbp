@@ -115,9 +115,6 @@
 		<Unit filename="C:/Users/qgwil/cs236/project1/IDAutomaton.h">
 			<Option target="project1"/>
 		</Unit>
-		<Unit filename="C:/Users/qgwil/cs236/project1/Interpreter.cpp">
-			<Option target="project1"/>
-		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/Interpreter.h">
 			<Option target="project1"/>
 		</Unit>

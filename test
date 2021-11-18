@@ -1,19 +1,23 @@
-# COPYRIGHT © BRIGHAM YOUNG UNIVERSITY CS 236
-# FOR USE ONLY DURING SUMMER 2021 SEMESTER
 Schemes:
-    SK(X,Y)
+  snap(S,N,A,P)
+  csg(C,S,G)
+  cn(C,N)
+  ncg(N,C,G)
 
 Facts:
-    SK('a','c').
-    SK('b','c').
-    SK('a','b').
+  snap('12345','C. Brown','12 Apple St.','555-1234').
+  snap('22222','P. Patty','56 Grape Blvd','555-9999').
+  snap('33333','Snoopy','12 Apple St.','555-1234').
+  csg('CS101','12345','A').
+  csg('CS101','22222','B').
+  csg('CS101','33333','C').
+  csg('EE200','12345','B+').
+  csg('EE200','22222','B').
 
 Rules:
-    SK(A,B) :- SK(A,B).
+  cn(c,n) :- snap(S,n,A,P),csg(c,S,G).
+  ncg(n,c,g) :- snap(S,n,A,P),csg(c,S,g).
 
 Queries:
-    SK(A,'c')?
-    SK('b','c')?
-    SK('c','c')?
-    SK(A,B)?
-
+  cn('CS101',Name)?
+  ncg('Snoopy',Course,Grade)?

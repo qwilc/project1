@@ -21,6 +21,7 @@ public:
     std::vector<std::string> GetValues() const {
         return values;
     }
+
     void Print() {
         for(std::string value : values) {
             std::cout << value << ", ";

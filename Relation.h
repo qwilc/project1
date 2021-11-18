@@ -6,6 +6,7 @@
 #define PROJECT1_RELATION_H
 #include <set>
 #include <sstream>
+#include <algorithm>
 #include "Tuple.h"
 #include "Header.h"
 
@@ -22,8 +23,8 @@ public:
 
     std::string toString() {
         std::stringstream output;
-        for(Tuple tuple : tuples) {
-            if(header->GetAttributes().size()!=0) {
+        for(const Tuple& tuple : tuples) {
+            if(!header->GetAttributes().empty()) {
                 output << "  ";
             }
             for(unsigned int i = 0; i < header->GetAttributes().size(); i++) {
@@ -76,7 +77,7 @@ public:
 
         return newRelation;
     }
-    Relation Project(std::vector<int> indices) {
+    Relation Project(std::vector<unsigned int> indices) {
         std::vector<std::string> attributes;
         for(int i : indices) { //TODO: is there a way to combine the for loops?
             attributes.push_back(header->GetAttributes()[i]);
@@ -94,10 +95,84 @@ public:
 
         return newRelation;
     }
-    Relation Rename(std::vector<std::string> newHeader) {
+    Relation Rename(const std::vector<std::string>& newHeader) {
         Relation newRelation(this->name, new Header(newHeader));
         newRelation.SetTuples(this->tuples);
         return newRelation;
+    }
+
+    Relation Join(Relation* r2) {
+        std::vector<std::pair<unsigned int, unsigned int>> overlapCols;
+        std::vector<unsigned int> uniqueCols;
+        Header newHeader = joinHeaders(r2, overlapCols, uniqueCols);
+        Relation newRelation("Joined Relation", new Header(newHeader.GetAttributes())); //TODO: Some weird stuff because I'm using a header pointer for Relation; should I change something?
+
+        for(const Tuple& t1 : tuples) {
+            for(const Tuple& t2 : r2->GetTuples()) {
+                if(isJoinable(t1, t2, overlapCols)) {
+                    newRelation.AddTuple(combineTuples(t1, t2, uniqueCols));
+                }
+            }
+        }
+        return newRelation;
+    }
+
+    Header joinHeaders(Relation* r2, std::vector<std::pair<unsigned int, unsigned int>>& overlapCols, std::vector<unsigned int>& uniqueCols) {
+        std::vector<std::string> r2Attributes = r2->GetHeader()->GetAttributes();
+
+        std::vector<std::string> newAttributes = this->GetHeader()->GetAttributes();
+        std::cout<<std::endl;
+
+        for(unsigned int i = 0; i < r2Attributes.size(); i++) {
+            unsigned int idx = find(newAttributes.begin(), newAttributes.end(), r2Attributes.at(i)) - newAttributes.begin();
+            if(idx == newAttributes.size()) {
+                newAttributes.push_back(r2Attributes.at(i));
+                uniqueCols.push_back(i);
+            }
+            else {
+                std::pair<unsigned int, unsigned int> cols = {idx, i};
+                overlapCols.push_back(cols);
+            }
+        }
+
+        return Header(newAttributes);
+    }
+
+    bool isJoinable(const Tuple& t1, const Tuple& t2, const std::vector<std::pair<unsigned int, unsigned int>>& overlapCols) {
+        std::vector<std::string> vec1 = t1.GetValues();
+        std::vector<std::string> vec2 = t2.GetValues();
+
+        for(std::pair<unsigned int, unsigned int> pair : overlapCols) {
+            if(vec1.at(pair.first) != vec2.at(pair.second)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    Tuple combineTuples(const Tuple& t1, const Tuple& t2, const std::vector<unsigned int>& uniqueCols) {
+        std::vector<std::string> combinedVals = t1.GetValues();
+        for(unsigned int idx : uniqueCols) {
+            combinedVals.push_back(t2.GetValues().at(idx));
+        }
+        return Tuple(combinedVals);
+    }
+
+    void Unite(Relation* r2, bool& wasChanged) {
+        for(Tuple tuple : r2->GetTuples()) {
+            if(tuples.insert(tuple).second) {
+                wasChanged = true;
+                for(unsigned int i = 0; i < header->GetAttributes().size(); i++) {
+                    std::cout << header->GetAttributes()[i] << "=" << tuple.GetValues()[i];
+                    if (i + 1 < header->GetAttributes().size()) {
+                        std::cout << ", ";
+                    }
+                    else {
+                        std::cout << "\n";
+                    }
+                }
+            }
+        }
     }
 };
 
