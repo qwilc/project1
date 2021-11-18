@@ -78,6 +78,7 @@ public:
 
     std::string EvaluateQueries() {
         std::stringstream output;
+        output << "Query Evaluation\n";
         for(Predicate query : datalogProgram->getQueries()) {
             Relation* relation = evaluatePredicate(query);
             output << query.toString() << "? ";
