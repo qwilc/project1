@@ -48,7 +48,7 @@ public:
             numPasses++;
 
             for (Rule rule : datalogProgram->getRules()) {
-                std::cout << rule.toString();
+                std::cout << rule.toString() << std::endl;
                 std::vector<Predicate> predicates = rule.GetBodyPredicates();
                 Relation *joinedRelation = evaluatePredicate(predicates[0]);
                 for (unsigned int i = 1; i < predicates.size(); i++) {

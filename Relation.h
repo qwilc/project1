@@ -104,8 +104,8 @@ public:
     Relation Join(Relation* r2) {
         std::vector<std::pair<unsigned int, unsigned int>> overlapCols;
         std::vector<unsigned int> uniqueCols;
-        Header newHeader = joinHeaders(r2, overlapCols, uniqueCols);
-        Relation newRelation("Joined Relation", new Header(newHeader.GetAttributes())); //TODO: Some weird stuff because I'm using a header pointer for Relation; should I change something?
+        std::vector<std::string> newHeader = joinHeaders(r2, overlapCols, uniqueCols);
+        Relation newRelation("Joined Relation", new Header(newHeader));
 
         for(const Tuple& t1 : tuples) {
             for(const Tuple& t2 : r2->GetTuples()) {
@@ -117,11 +117,9 @@ public:
         return newRelation;
     }
 
-    Header joinHeaders(Relation* r2, std::vector<std::pair<unsigned int, unsigned int>>& overlapCols, std::vector<unsigned int>& uniqueCols) {
+    std::vector<std::string> joinHeaders(Relation* r2, std::vector<std::pair<unsigned int, unsigned int>>& overlapCols, std::vector<unsigned int>& uniqueCols) {
         std::vector<std::string> r2Attributes = r2->GetHeader()->GetAttributes();
-
         std::vector<std::string> newAttributes = this->GetHeader()->GetAttributes();
-        std::cout<<std::endl;
 
         for(unsigned int i = 0; i < r2Attributes.size(); i++) {
             unsigned int idx = find(newAttributes.begin(), newAttributes.end(), r2Attributes.at(i)) - newAttributes.begin();
@@ -135,7 +133,7 @@ public:
             }
         }
 
-        return Header(newAttributes);
+        return newAttributes;
     }
 
     bool isJoinable(const Tuple& t1, const Tuple& t2, const std::vector<std::pair<unsigned int, unsigned int>>& overlapCols) {
