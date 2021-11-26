@@ -36,4 +36,5 @@ add_executable(project1
         Header.h
         Tuple.h
         Interpreter.h
+        Graph.h
         )

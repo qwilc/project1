@@ -42,7 +42,10 @@ public:
         std::cout << "Rule Evaluation\n";
         bool wasChanged = true;
         unsigned int numPasses = 0;
-
+        std::vector<Rule> rules = datalogProgram->getRules();
+        //for SCC : forest
+        //for ID : SCC
+        //rule = rules[ID]
         while(wasChanged) {
             wasChanged = false;
             numPasses++;

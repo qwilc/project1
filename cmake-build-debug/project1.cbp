@@ -106,6 +106,9 @@
 		<Unit filename="C:/Users/qgwil/cs236/project1/ExactMatchAutomaton.h">
 			<Option target="project1"/>
 		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Graph.h">
+			<Option target="project1"/>
+		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/Header.h">
 			<Option target="project1"/>
 		</Unit>

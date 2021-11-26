@@ -2,6 +2,7 @@
 #include "Parser.h"
 #include "Database.h"
 #include "Interpreter.h"
+#include "Graph.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -27,14 +28,14 @@ int main(int argc, char** argv) {
     lexer->Run(inputStr);
     DatalogProgram datalogProgram;
 
-    Parser* parser = new Parser(lexer->getTokens());
+    /*Parser* parser = new Parser(lexer->getTokens());
     try {
         datalogProgram = parser->parse();
     }
     catch (Token * error) {
         std::cout<<"Failure!"<<std::endl<<"  "<<error->toString()<<std::endl;
         return 0;
-    }
+    }*/
 
     //TEST CODE TODO: Remove when done with all this
 
@@ -74,11 +75,48 @@ int main(int argc, char** argv) {
         std::cout << std::endl;
     }*/
 
+    //TODO: REMOVE PROJECT 5 TEST CODE
+    /*
+    std::map<int, std::set<int>> list {
+        {0, {}},
+        {1, {2}},
+        {2, {0, 1, 3}},
+        {3, {0, 1}},
+        {4, {0, 1, 2, 3}},
+        {5, {}},
+        {6, {4,5,7,8}},
+        {7, {5,6,8}},
+        {8, {5,7}}
+    };
+
+    Graph graph(list);
+    Graph reverse = graph.reverseGraph();
+    std::cout << graph.toString();
+    std::cout << reverse.toString();
+    std::vector<int> postorder = reverse.postorderDFS();
+    std::cout << "Postorder: ";
+    for(auto r : postorder) {
+        std::cout << r << ",";
+    }
+
+    std::vector<std::set<int>> forest = graph.dfsForest(postorder);
+    std::cout << "\n Forest: ";
+    for(auto set : forest) {
+        std::cout << "{";
+        for(auto r : set)
+        {
+            std::cout << r << ",";
+        }
+        std::cout << "}\n";
+    }
+    std::cout << "\n";
+    */
+
     Interpreter interpreter(&datalogProgram, database);
     interpreter.Interpret();
 
     delete lexer;
-    delete parser;
+    //delete parser;
 
     return 0;
 }
