@@ -44,11 +44,11 @@ public:
         unsigned int numPasses = 0;
         std::vector<Rule> rules = datalogProgram->getRules();
         //for SCC : forest
-        //for ID : SCC
-        //rule = rules[ID]
         while(wasChanged) {
             wasChanged = false;
             numPasses++;
+            //for ID : SCC
+            //rule = rules[ID]
 
             for (Rule rule : datalogProgram->getRules()) {
                 std::cout << rule.toString() << std::endl;
