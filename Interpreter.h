@@ -61,6 +61,12 @@ public:
         std::cout << "Rule Evaluation\n";
 
         for(const std::set<int>& SCC : components) {
+
+            bool isTrivial = true;
+            if(SCC.size() > 1 || *adjList[*SCC.begin()].find(*SCC.begin()) != *adjList[*SCC.begin()].end()) {
+                isTrivial = false;
+            }
+
             bool wasChanged = true;
             unsigned int numPasses = 0;
 
@@ -105,7 +111,7 @@ public:
 
                     matchingRelation->Unite(joinedRelation, wasChanged);
                 }
-            } while(wasChanged && SCC.size() > 0);
+            } while(wasChanged && !isTrivial);
             std::cout << numPasses << " passes: " << ruleString.str() << "\n";
         }
         std::cout << "\n";

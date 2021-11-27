@@ -12,7 +12,7 @@
 class Graph {
 private:
     std::map<int, std::set<int>> adjList;
-    std::vector<bool> visited; //TODO: Should be map<int, bool>
+    std::vector<bool> visited; //TODO: Should be map<int, bool>?
 public:
     Graph(std::map<int, std::set<int>> list, std::vector<bool> v) {
         adjList = list;
