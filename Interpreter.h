@@ -105,7 +105,7 @@ public:
 
                     matchingRelation->Unite(joinedRelation, wasChanged);
                 }
-            } while(wasChanged && SCC.size() > 1);
+            } while(wasChanged && SCC.size() > 0);
             std::cout << numPasses << " passes: " << ruleString.str() << "\n";
         }
         std::cout << "\n";
