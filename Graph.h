@@ -56,6 +56,7 @@ public:
     Graph reverseGraph() {
         std::map<int, std::set<int>> reverseList;
         for(auto rule : adjList) {
+            reverseList[rule.first];
             for(auto adjRule : rule.second) {
                 reverseList[adjRule].insert(rule.first);
             }
