@@ -17,7 +17,7 @@ void CommentAutomaton::S0(const std::string &input) {
 
 void CommentAutomaton::S1(const std::string &input) {
     if(index >= input.size() || input[index] == '\n') {
-        //TODO: Do I do nothing and have a comment that's just the pound?
+        //Do nothing and have a comment that's just a pound
     }
     else if(input[index] == '|') { //start of a block comment; go to state 2
         index++;

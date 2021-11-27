@@ -43,7 +43,7 @@ public:
         std::vector<Rule> rules = datalogProgram->getRules();
         std::map<int, std::set<int>> adjList;
 
-        for(unsigned int i = 0; i < rules.size(); i++) { //TODO: Can I do this without a triple loop?
+        for(unsigned int i = 0; i < rules.size(); i++) {
             adjList[i];
             for(Predicate p : rules[i].GetBodyPredicates()) {
                 for(unsigned int j = 0; j < rules.size(); j++) {

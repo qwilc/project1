@@ -79,7 +79,7 @@ public:
     }
     Relation Project(std::vector<unsigned int> indices) {
         std::vector<std::string> attributes;
-        for(int i : indices) { //TODO: is there a way to combine the for loops?
+        for(int i : indices) {
             attributes.push_back(header->GetAttributes()[i]);
         }
 

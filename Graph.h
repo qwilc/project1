@@ -12,17 +12,12 @@
 class Graph {
 private:
     std::map<int, std::set<int>> adjList;
-    std::vector<bool> visited; //TODO: Should be map<int, bool>?
+    std::vector<bool> visited;
 public:
-    Graph(std::map<int, std::set<int>> list, std::vector<bool> v) {
-        adjList = list;
-        visited = v;
-    }
-
-    Graph(std::map<int, std::set<int>> list) {
+    Graph(std::map<int,std::set<int>> list) {
         adjList = list;
         visited = std::vector<bool>(list.size());
-        for(unsigned int i = 0; i < visited.size(); i++) { //TODO: Is this best? Do I even need both constructors?
+        for(unsigned int i = 0; i < visited.size(); i++) {
             visited[i] = false;
         }
     }
