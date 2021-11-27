@@ -8,6 +8,7 @@
 #include <algorithm>
 #include "DatalogProgram.h"
 #include "Database.h"
+#include "Graph.h"
 
 
 class Interpreter {
@@ -39,44 +40,75 @@ public:
     }
 
     void EvaluateRules() {
-        std::cout << "Rule Evaluation\n";
-        bool wasChanged = true;
-        unsigned int numPasses = 0;
         std::vector<Rule> rules = datalogProgram->getRules();
-        //for SCC : forest
-        while(wasChanged) {
-            wasChanged = false;
-            numPasses++;
-            //for ID : SCC
-            //rule = rules[ID]
+        std::map<int, std::set<int>> adjList;
 
-            for (Rule rule : datalogProgram->getRules()) {
-                std::cout << rule.toString() << std::endl;
-                std::vector<Predicate> predicates = rule.GetBodyPredicates();
-                Relation *joinedRelation = evaluatePredicate(predicates[0]);
-                for (unsigned int i = 1; i < predicates.size(); i++) {
-                    Relation *relation = evaluatePredicate(predicates[i]);
-                    *joinedRelation = joinedRelation->Join(relation);
+        for(unsigned int i = 0; i < rules.size(); i++) { //TODO: Can I do this without a triple loop?
+            adjList[i];
+            for(Predicate p : rules[i].GetBodyPredicates()) {
+                for(unsigned int j = 0; j < rules.size(); j++) {
+                    if(rules[j].GetHeadPredicate().getID() == p.getID()) {
+                        adjList[i].insert(j);
+                    }
                 }
-
-                std::vector<unsigned int> projectVect;
-                for (Parameter col : rule.GetHeadPredicate().getParameters()) {
-                    std::vector<std::string> joinedHeader = joinedRelation->GetHeader()->GetAttributes();
-                    unsigned int idx =
-                            find(joinedHeader.begin(), joinedHeader.end(), col.toString()) - joinedHeader.begin();
-                    projectVect.push_back(idx);
-                }
-
-                *joinedRelation = joinedRelation->Project(projectVect);
-
-                std::string ruleID = rule.GetHeadPredicate().getID();
-                Relation *matchingRelation = database->GetRelations()[ruleID];
-                *joinedRelation = joinedRelation->Rename(matchingRelation->GetHeader()->GetAttributes());
-
-                matchingRelation->Unite(joinedRelation, wasChanged);
             }
         }
-        std::cout << "\nSchemes populated after " << numPasses << " passes through the Rules.\n\n";
+
+        Graph dependencyGraph(adjList);
+        std::cout << dependencyGraph.toString();
+        std::vector<std::set<int>> components = dependencyGraph.returnSCCs();
+
+        std::cout << "Rule Evaluation\n";
+
+        for(const std::set<int>& SCC : components) {
+            bool wasChanged = true;
+            unsigned int numPasses = 0;
+
+            std::cout << "SCC: ";
+            std::stringstream ruleString;
+            bool addComma = false;
+            for(int rule : SCC) {
+                if(addComma) {
+                    ruleString << ",";
+                }
+                ruleString << "R" << rule;
+                addComma = true;
+            }
+            std::cout << ruleString.str() << "\n";
+            do {
+                wasChanged = false;
+                numPasses++;
+
+                for(int ID : SCC) {
+                    Rule rule = rules[ID];
+                    std::cout << rule.toString() << std::endl;
+                    std::vector<Predicate> predicates = rule.GetBodyPredicates();
+                    Relation *joinedRelation = evaluatePredicate(predicates[0]);
+                    for (unsigned int i = 1; i < predicates.size(); i++) {
+                        Relation *relation = evaluatePredicate(predicates[i]);
+                        *joinedRelation = joinedRelation->Join(relation);
+                    }
+
+                    std::vector<unsigned int> projectVect;
+                    for (Parameter col : rule.GetHeadPredicate().getParameters()) {
+                        std::vector<std::string> joinedHeader = joinedRelation->GetHeader()->GetAttributes();
+                        unsigned int idx =
+                                find(joinedHeader.begin(), joinedHeader.end(), col.toString()) - joinedHeader.begin();
+                        projectVect.push_back(idx);
+                    }
+
+                    *joinedRelation = joinedRelation->Project(projectVect);
+
+                    std::string ruleID = rule.GetHeadPredicate().getID();
+                    Relation *matchingRelation = database->GetRelations()[ruleID];
+                    *joinedRelation = joinedRelation->Rename(matchingRelation->GetHeader()->GetAttributes());
+
+                    matchingRelation->Unite(joinedRelation, wasChanged);
+                }
+            } while(wasChanged && SCC.size() > 1);
+            std::cout << numPasses << " passes: " << ruleString.str() << "\n";
+        }
+        std::cout << "\n";
     }
 
     std::string EvaluateQueries() {

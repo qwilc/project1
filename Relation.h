@@ -161,7 +161,7 @@ public:
             if(tuples.insert(tuple).second) {
                 wasChanged = true;
                 for(unsigned int i = 0; i < header->GetAttributes().size(); i++) {
-                    std::cout << header->GetAttributes()[i] << "=" << tuple.GetValues()[i];
+                    std::cout << "  " << header->GetAttributes()[i] << "=" << tuple.GetValues()[i];
                     if (i + 1 < header->GetAttributes().size()) {
                         std::cout << ", ";
                     }

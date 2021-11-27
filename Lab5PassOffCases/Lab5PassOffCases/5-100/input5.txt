@@ -1,5 +1,5 @@
 # COPYRIGHT © BRIGHAM YOUNG UNIVERSITY CS 236
-# FOR USE ONLY DURING SUMMER 2021 SEMESTER
+# FOR USE ONLY DURING SPRING 2021 SEMESTER
 Schemes:
    a(x,y)
    b(x,y)
@@ -23,6 +23,7 @@ Facts:
    a('4','4').
 
 Rules:
+   a(X,Y):-a(Y,X).
    b(X,Y):-a(X,Y).
    c(X,Y):-b(X,Y).
    d(X,Y):-c(X,Y).
@@ -32,5 +33,5 @@ Rules:
    all(X,Y):-a(X,Y),b(X,Y),c(X,Y),d(X,Y),e(X,Y),f(X,Y),g(X,Y).
 
 Queries:
-   g('1','3')?
+   g('3','1')?
    all(A,B)?

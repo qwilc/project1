@@ -47,6 +47,12 @@ public:
         return output.str();
     }
 
+    std::vector<std::set<int>> returnSCCs() {
+        Graph reverse = reverseGraph();
+        std::vector<int> postorder = reverse.postorderDFS();
+        return dfsForest(postorder);
+    }
+
     Graph reverseGraph() {
         std::map<int, std::set<int>> reverseList;
         for(auto rule : adjList) {

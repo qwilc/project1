@@ -30,6 +30,16 @@ C:/Users/qgwil/cs236/project1/Predicate.h
 Rule.h
 C:/Users/qgwil/cs236/project1/Rule.h
 
+C:/Users/qgwil/cs236/project1/Graph.h
+set
+-
+map
+-
+vector
+-
+sstream
+-
+
 C:/Users/qgwil/cs236/project1/Header.h
 vector
 -
@@ -45,6 +55,8 @@ DatalogProgram.h
 C:/Users/qgwil/cs236/project1/DatalogProgram.h
 Database.h
 C:/Users/qgwil/cs236/project1/Database.h
+Graph.h
+C:/Users/qgwil/cs236/project1/Graph.h
 
 C:/Users/qgwil/cs236/project1/Lexer.h
 vector
@@ -117,6 +129,8 @@ Database.h
 C:/Users/qgwil/cs236/project1/Database.h
 Interpreter.h
 C:/Users/qgwil/cs236/project1/Interpreter.h
+Graph.h
+C:/Users/qgwil/cs236/project1/Graph.h
 iostream
 -
 string

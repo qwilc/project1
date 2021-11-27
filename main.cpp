@@ -28,14 +28,14 @@ int main(int argc, char** argv) {
     lexer->Run(inputStr);
     DatalogProgram datalogProgram;
 
-    /*Parser* parser = new Parser(lexer->getTokens());
+    Parser* parser = new Parser(lexer->getTokens());
     try {
         datalogProgram = parser->parse();
     }
     catch (Token * error) {
         std::cout<<"Failure!"<<std::endl<<"  "<<error->toString()<<std::endl;
         return 0;
-    }*/
+    }
 
     //TEST CODE TODO: Remove when done with all this
 
@@ -116,7 +116,7 @@ int main(int argc, char** argv) {
     interpreter.Interpret();
 
     delete lexer;
-    //delete parser;
+    delete parser;
 
     return 0;
 }
