@@ -13,7 +13,9 @@ class Parameter {
 
 public:
     Parameter(bool isString, std::string value);
+
     bool isString() {return string;};
+
     std::string toString();
 };
 

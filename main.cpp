@@ -2,7 +2,6 @@
 #include "Parser.h"
 #include "Database.h"
 #include "Interpreter.h"
-#include "Graph.h"
 #include <iostream>
 #include <string>
 #include <fstream>

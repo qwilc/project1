@@ -12,6 +12,7 @@ private:
     std::string toMatch;
 public:
     ExactMatchAutomaton(std::string toMatch, TokenType tokenType);
+
     void S0(const std::string& input);
 };
 

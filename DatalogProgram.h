@@ -21,13 +21,18 @@ private:
     std::set<std::string> domain;
 
 public:
-    DatalogProgram() {};
+    DatalogProgram() {}; //TODO: Is the trivial default constructor necessary?
+
     std::string toString();
 
     std::vector<Predicate> getSchemes() {return schemes;}
+
     std::vector<Predicate> getFacts() {return facts;}
+
     std::vector<Predicate> getQueries() {return queries;}
+
     std::vector<Rule> getRules() {return rules;}
+
     std::set<std::string> getDomain() {return domain;}
 
     void addSchemes(Predicate scheme) {schemes.push_back(scheme);}
@@ -50,7 +55,7 @@ public:
         rules.insert(rules.end(), newRules.begin(), newRules.end());
     }
 
-    void addToDomain(std::string string) {domain.insert(string);}
+    void addToDomain(const std::string& string) {domain.insert(string);}
 };
 
 

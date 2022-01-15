@@ -24,22 +24,23 @@ enum class TokenType {
 };
 
 
-
 class Token
 {
 private:
     TokenType type;
     std::string description;
     int line;
+
     std::string tokenTypeToString(TokenType tokenType);
 
 public:
     Token(TokenType type, std::string description, int line);
-    TokenType getType() {return type;}
+
+    TokenType getType() {return type;} //TODO: Should I move getter definitions to the .cpp file?
+
     std::string getDescription() {return description;}
+
     std::string toString();
-
-
 };
 
 #endif // TOKEN_H

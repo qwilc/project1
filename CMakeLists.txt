@@ -37,4 +37,4 @@ add_executable(project1
         Tuple.h
         Interpreter.h
         Graph.h
-        )
+        Database.cpp Graph.cpp Header.cpp Interpreter.cpp Tuple.cpp Relation.cpp)

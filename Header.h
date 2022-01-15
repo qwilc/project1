@@ -13,18 +13,11 @@ class Header {
 private:
     std::vector<std::string> attributes;
 public:
-    Header(const std::vector<std::string>& attributes) {
-        this->attributes = attributes;
-    }
-    std::vector<std::string> GetAttributes() {
-        return attributes;
-    }
-    void Print() {
-        for(std::string attribute : attributes) {
-            std::cout << attribute << ", ";
-        }
-        std::cout << std::endl;
-    }
+    Header(const std::vector<std::string>& attributes);
+
+    std::vector<std::string> GetAttributes();
+
+    void Print();
 };
 
 

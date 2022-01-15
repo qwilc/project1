@@ -15,6 +15,7 @@ public:
 
 private:
     void S1(const std::string& input);
+
     void S2(const std::string& input);
 };
 

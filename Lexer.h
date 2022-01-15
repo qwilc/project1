@@ -14,12 +14,14 @@ private:
 
 public:
     Lexer();
+
     ~Lexer();
 
     void Run(std::string& input);
-    std::vector<Token*> getTokens();
-    std::string toString();
 
+    std::vector<Token*> getTokens();
+
+    std::string toString();
 };
 
 #endif // LEXER_H

@@ -14,95 +14,21 @@ private:
     std::map<int, std::set<int>> adjList;
     std::vector<bool> visited;
 public:
-    Graph(std::map<int,std::set<int>> list) {
-        adjList = list;
-        visited = std::vector<bool>(list.size());
-        for(unsigned int i = 0; i < visited.size(); i++) {
-            visited[i] = false;
-        }
-    }
+    Graph(const std::map<int,std::set<int>>& list);
 
-    std::string toString() {
-        std::stringstream output;
-        bool addComma = false;
-        output << "Dependency Graph\n";
-        for(auto rule : adjList) {
-            output << "R" << rule.first << ":";
-            for(auto adjRule : rule.second) {
-                if (addComma) {
-                    output << ",";
-                }
-                output << "R" << adjRule;
-                addComma = true;
-            }
-            addComma = false;
-            output << "\n";
-        }
-        output << "\n";
-        return output.str();
-    }
+    std::string toString();
 
-    std::vector<std::set<int>> returnSCCs() {
-        Graph reverse = reverseGraph();
-        std::vector<int> postorder = reverse.postorderDFS();
-        return dfsForest(postorder);
-    }
+    std::vector<std::set<int>> returnSCCs();
 
-    Graph reverseGraph() {
-        std::map<int, std::set<int>> reverseList;
-        for(auto rule : adjList) {
-            reverseList[rule.first];
-            for(auto adjRule : rule.second) {
-                reverseList[adjRule].insert(rule.first);
-            }
-        }
-        return Graph(reverseList);
-    }
+    Graph reverseGraph();
 
-    std::vector<int> postorderDFS() {
-        std::vector<int> postorder;
-        for(auto rule : adjList) {
-            if(!visited[rule.first]) {
-                postorderDFS(rule.first, postorder);
-            }
-        }
-        return postorder;
-    }
+    std::vector<int> postorderDFS();
 
-    void postorderDFS(int rule, std::vector<int>& postorder) {
-        std::set<int> adjRules = adjList[rule];
-        visited[rule] = true;
-        for(auto adjRule : adjRules) {
-            if(!visited[adjRule]) {
-                postorderDFS(adjRule, postorder);
-            }
-        }
-        postorder.push_back(rule);
-    }
+    void postorderDFS(int rule, std::vector<int>& postorder);
 
-    std::vector<std::set<int>> dfsForest(std::vector<int> postorder) {
-        std::vector<std::set<int>> forest;
-        std::set<int> SCC;
-        for(int i = postorder.size()-1; i>=0; i--) {
-            if (!visited[postorder[i]]) {
-                dfsTree(postorder[i], SCC);
-                forest.push_back(SCC);
-                SCC = {};
-            }
-        }
-        return forest;
-    }
+    std::vector<std::set<int>> dfsForest(std::vector<int> postorder);
 
-    void dfsTree(int rule, std::set<int>& SCC) {
-        std::set<int> adjRules = adjList[rule];
-        visited[rule] = true;
-        for(auto adjRule : adjRules) {
-            if(!visited[adjRule]) {
-                dfsTree(adjRule, SCC);
-            }
-        }
-        SCC.insert(rule);
-    }
+    void dfsTree(int rule, std::set<int> &SCC);
 };
 
 #endif //PROJECT1_GRAPH_H

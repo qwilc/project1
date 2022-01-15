@@ -11,6 +11,7 @@
 class IDAutomaton : public Automaton {
 public:
     IDAutomaton() : Automaton(TokenType::ID) {}
+
     void S0(const std::string &input);
 
 private:

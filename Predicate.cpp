@@ -20,3 +20,7 @@ std::string Predicate::toString() {
 
     return output.str();
 }
+
+void Predicate::addParameters(std::vector<Parameter> newParameters) {
+    this->parameters.insert(this->parameters.end(), newParameters.begin(), newParameters.end());
+}

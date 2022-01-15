@@ -91,6 +91,9 @@
 		<Unit filename="C:/Users/qgwil/cs236/project1/CommentAutomaton.h">
 			<Option target="project1"/>
 		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Database.cpp">
+			<Option target="project1"/>
+		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/Database.h">
 			<Option target="project1"/>
 		</Unit>
@@ -106,7 +109,13 @@
 		<Unit filename="C:/Users/qgwil/cs236/project1/ExactMatchAutomaton.h">
 			<Option target="project1"/>
 		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Graph.cpp">
+			<Option target="project1"/>
+		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/Graph.h">
+			<Option target="project1"/>
+		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Header.cpp">
 			<Option target="project1"/>
 		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/Header.h">
@@ -116,6 +125,9 @@
 			<Option target="project1"/>
 		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/IDAutomaton.h">
+			<Option target="project1"/>
+		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Interpreter.cpp">
 			<Option target="project1"/>
 		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/Interpreter.h">
@@ -145,6 +157,9 @@
 		<Unit filename="C:/Users/qgwil/cs236/project1/Predicate.h">
 			<Option target="project1"/>
 		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Relation.cpp">
+			<Option target="project1"/>
+		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/Relation.h">
 			<Option target="project1"/>
 		</Unit>
@@ -164,6 +179,9 @@
 			<Option target="project1"/>
 		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/Token.h">
+			<Option target="project1"/>
+		</Unit>
+		<Unit filename="C:/Users/qgwil/cs236/project1/Tuple.cpp">
 			<Option target="project1"/>
 		</Unit>
 		<Unit filename="C:/Users/qgwil/cs236/project1/Tuple.h">
